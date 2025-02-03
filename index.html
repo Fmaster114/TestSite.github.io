@@ -109,6 +109,16 @@
             z-index: 2000;
         }
 
+        .cursorPath {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Red_X.svg/512px-Red_X.svg.png') no-repeat center center;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 3000;
+        }
+
         /* Full screen popup */
         #downloadPopup {
             position: fixed;
@@ -220,17 +230,35 @@
             }, 200);
         }
 
+        // Cursor path X effect
+        function createCursorPath(e) {
+            var cursorPath = document.createElement('div');
+            cursorPath.classList.add('cursorPath');
+            document.body.appendChild(cursorPath);
+
+            cursorPath.style.top = e.pageY - 15 + 'px';
+            cursorPath.style.left = e.pageX - 15 + 'px';
+
+            setTimeout(function() {
+                cursorPath.remove();
+            }, 300); // Show the X for 300ms
+        }
+
         // Random popups every 0.5 seconds
         setInterval(createRandomPopup, 500);
 
         // Mouse move listener
-        document.addEventListener('mousemove', cloneMouse);
+        document.addEventListener('mousemove', function(e) {
+            cloneMouse(e);
+            createCursorPath(e);
+        });
 
-        // Click anywhere on the screen to go to the YouTube link after 5 seconds
+        // Click anywhere on the screen to go to the YouTube link after random time between 1-4 minutes
         document.addEventListener('click', function() {
+            var randomDelay = Math.floor(Math.random() * (240000 - 60000 + 1)) + 60000; // Random time between 1-4 minutes in milliseconds
             setTimeout(function() {
                 window.open('https://www.youtube.com/watch?v=9NcPvmk4vfo', '_blank');
-            }, 5000); // Redirect after 5 seconds
+            }, randomDelay);
         });
 
         // Creating fake virus popups
@@ -297,13 +325,6 @@
 
         // Play glitch sound at random intervals
         setInterval(playGlitchSound, 1500); // Play every 1.5 seconds
-
-        // Move the close button with the cursor
-        document.addEventListener('mousemove', function(event) {
-            var closeButton = document.getElementById('closeButton');
-            closeButton.style.top = event.pageY + 'px';
-            closeButton.style.left = event.pageX + 'px';
-        });
     </script>
 </body>
 </html>
