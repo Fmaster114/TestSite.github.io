@@ -12,6 +12,7 @@
             padding: 0;
             color: white;
             overflow: hidden;
+            position: relative;
         }
         header {
             background-color: #00ffff;
@@ -48,6 +49,7 @@
             border-radius: 10px;
             z-index: 1000;
             display: none;
+            text-align: center;
         }
         .mouseClone {
             position: absolute;
@@ -70,34 +72,20 @@
             cursor: pointer;
             z-index: 500;
         }
-        .forum {
-            background-color: #ffff00;
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 15px;
-            font-size: 1.2em;
-        }
-        .forum input, .forum textarea {
-            width: 100%;
-            padding: 10px;
-            font-size: 1em;
-            margin: 10px 0;
-            border: 1px solid #ff6600;
-            border-radius: 5px;
-        }
-        .forum button {
-            background-color: #ff6600;
+        .virusPopup {
+            background-color: #ff0000;
             color: white;
-            font-size: 1.2em;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            font-size: 3em;
+            text-align: center;
+            animation: shake 0.5s ease-in-out infinite;
+            border: 3px solid yellow;
         }
-        .error {
-            color: red;
-            font-size: 1.2em;
-            display: none;
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
         }
     </style>
 </head>
@@ -108,30 +96,18 @@
 
     <main>
         <div class="article">
-            <h2>Some Animals are Hideous</h2>
-            <p>Animals are amazing, but some are downright hideous! Let's take a moment to appreciate the weirdest creatures on Earth...</p>
+            <h2>Breaking News!</h2>
+            <p>Alert! You’ve just unlocked the secret portal to an unlimited amount of chaos and randomness!</p>
         </div>
 
         <div class="article">
-            <h2>Random Thoughts</h2>
-            <p>Why do we always assume cats land on their feet? What if gravity is secretly messing with them?</p>
+            <h2>Latest Virus Warning!</h2>
+            <p>URGENT! Your computer may have just been infected with the SuperDuperHyperVirus123. DO NOT CLOSE THIS PAGE!</p>
         </div>
         
         <div class="article">
-            <h2>Celebrity Musings</h2>
-            <p>Did you ever wonder what would happen if we swapped the hairstyles of famous celebrities? Would they still be recognizable?</p>
-        </div>
-
-        <!-- Broken Forum Section -->
-        <div class="forum">
-            <h2>Broken Forum (Do not use)</h2>
-            <p>Try to post something, but it will break! 😈</p>
-            <form id="forumForm">
-                <input type="text" id="username" placeholder="Your Name" />
-                <textarea id="postContent" placeholder="Type your post here..."></textarea>
-                <button type="submit">Post</button>
-            </form>
-            <div class="error" id="errorMessage">Oops! Something went wrong. The forum is broken!</div>
+            <h2>Official Announcement:</h2>
+            <p>Congratulations! You are the 1,000,000th visitor, and you've won a lifetime supply of confusion!</p>
         </div>
     </main>
 
@@ -140,17 +116,12 @@
     </footer>
 
     <!-- Popups -->
-    <div id="popup1" class="popup"></div>
-    <div id="popup2" class="popup"></div>
-    <div id="popup3" class="popup"></div>
-    <div id="popup4" class="popup"></div>
-    <div id="popup5" class="popup"></div>
-    <div id="popup6" class="popup"></div>
-
-    <!-- Buttons -->
-    <button id="nil1" style="top: 100px; left: 100px;">Nil</button>
-    <button id="nil2" style="top: 200px; left: 200px;">Nil</button>
-    <button id="nil3" style="top: 300px; left: 300px;">Nil</button>
+    <div id="popup1" class="popup">System Alert: Something went terribly wrong!</div>
+    <div id="popup2" class="popup">Warning! A dangerous virus was detected!</div>
+    <div id="popup3" class="popup">Error 404: Brain cells not found.</div>
+    <div id="popup4" class="popup virusPopup">ERROR: Critical Failure Detected!</div>
+    <div id="popup5" class="popup virusPopup">WARNING: Virus Infection Detected!</div>
+    <div id="popup6" class="popup">WARNING! You have been Rickrolled!</div>
 
     <script>
         // Function to get random RGB color
@@ -165,12 +136,10 @@
         function createRandomPopup() {
             var popups = document.querySelectorAll('.popup');
             var randomPopup = popups[Math.floor(Math.random() * popups.length)];
-            var randomText = ["BOOM!", "WOW!", "YEAH!", "OH NO!", "LOL!", "EPIC!", "POW!", "BAM!"];
             randomPopup.style.display = 'block';
             randomPopup.style.top = Math.random() * window.innerHeight + 'px';
             randomPopup.style.left = Math.random() * window.innerWidth + 'px';
             randomPopup.style.backgroundColor = getRandomColor();
-            randomPopup.textContent = randomText[Math.floor(Math.random() * randomText.length)];
 
             setTimeout(function() {
                 randomPopup.style.display = 'none';
@@ -190,31 +159,29 @@
             }, 200);
         }
 
-        // Random popups every 1 second
-        setInterval(createRandomPopup, 1000);
+        // Random popups every 0.5 seconds
+        setInterval(createRandomPopup, 500);
 
         // Mouse move listener
         document.addEventListener('mousemove', cloneMouse);
 
-        // Button "Nil" click events
-        document.getElementById('nil1').addEventListener('click', function() {
-            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-        });
-        document.getElementById('nil2').addEventListener('click', function() {
-            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
-        });
-        document.getElementById('nil3').addEventListener('click', function() {
-            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        // Click anywhere on the screen to go to the YouTube link
+        document.addEventListener('click', function() {
+            window.location.href = 'https://www.youtube.com/watch?v=9NcPvmk4vfo';
         });
 
-        // Handle the form submission (simulating broken forum)
-        document.getElementById('forumForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // Prevent the form from submitting normally
-            document.getElementById('errorMessage').style.display = 'block';  // Show the error message
+        // Creating fake virus popups
+        setInterval(function() {
+            var virusPopup = document.createElement('div');
+            virusPopup.classList.add('virusPopup');
+            virusPopup.innerText = "VIRUS DETECTED! CLICK OK TO FIX";
+            virusPopup.style.top = Math.random() * window.innerHeight + 'px';
+            virusPopup.style.left = Math.random() * window.innerWidth + 'px';
+            document.body.appendChild(virusPopup);
             setTimeout(function() {
-                document.getElementById('errorMessage').style.display = 'none';  // Hide the error after a few seconds
+                virusPopup.remove();
             }, 3000);
-        });
+        }, 1000);
     </script>
 </body>
 </html>
