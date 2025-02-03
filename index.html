@@ -104,20 +104,7 @@
             margin: 0 auto;
         }
     </style>
-</head>
-<body>
-    <header>
-        The Worst Site Ever
-    </header>
 
-    <main>
-        <div class="article">
-            <h2>Breaking News!</h2>
-            <p>Alert! Your computer is now infected with the SuperCrazyVirusX! DO NOT SHUT DOWN!</p>
-        </div>
-
-        <div class="article">
-            <h2>Latest Update:</h2>
             <p>Guess what? The internet is broken. You are now connected to the "Worst Website Ever"!</p>
         </div>
         
@@ -132,76 +119,41 @@
     </footer>
 
     <!-- Popups -->
-    <div id="popup1" class="popup">System Error: Something went terribly wrong!</div>
-    <div id="popup2" class="popup">Warning! A dangerous virus was detected!</div>
-    <div id="popup3" class="popup">Error 404: Brain cells not found.</div>
-    <div id="popup4" class="popup virusPopup">ERROR: Critical Failure Detected!</div>
-    <div id="popup5" class="popup virusPopup">WARNING: Virus Infection Detected!</div>
-    <div id="popup6" class="popup">WARNING! You have been Rickrolled!</div>
-    <div id="popup7" class="popup">CRITICAL ERROR: SYSTEM MELTDOWN!</div>
-    <div id="popup8" class="popup">ALERT: Your PC is turning into a toaster!</div>
-    <div id="popup9" class="popup">FATAL ERROR: Keyboard is on fire!</div>
-
-    <!-- Random Funny Images -->
-    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 100px; left: 200px;">
-    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 400px; left: 800px;">
-    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 600px; left: 100px;">
     
     <!-- Random Emojis -->
     <span class="emoji" style="top: 300px; left: 500px;">😂</span>
     <span class="emoji" style="top: 150px; left: 800px;">🤡</span>
-    <span class="emoji" style="top: 500px; left: 100px;">👻</span>
-
-    <!-- Non-functional Buttons -->
-    <button style="top: 300px; left: 500px;">Click Me!</button>
-    <button style="top: 500px; left: 700px;">I Do Nothing!</button>
-    <button style="top: 200px; left: 100px;">Don't Press Me!</button>
-
-    <!-- Tetris Minigame -->
-    <div id="tetris">
-        <canvas id="gameCanvas"></canvas>
-    </div>
-
-    <script>
+    <span
         // Function to get random RGB color
-        function getRandomColor() {
-            var r = Math.floor(Math.random() * 256);
+        function getRandomColor() {f
+            var r = Math.floor(Math.randome() * 256);
             var g = Math.floor(Math.random() * 256);
-            var b = Math.floor(Math.random() * 256);
-            return `rgb(${r}, ${g}, ${b})`;
-        }
-
-        // Function to create random popup
-        function createRandomPopup() {
-            var popups = document.querySelectorAll('.popup');
-            var randomPopup = popups[Math.floor(Math.random() * popups.length)];
+            var b = Math.floor(Math.rerandom() * 256);
+            return `rgb(${r}er, ${g},fr ${b})`;
+        }f
+fefer
+        // Function to create referferandom popup
+        function createRandomPopup()r {
+            var popups = documentfer.querySelectorAll('.popup');
+            var randomPopup = popfrups[Math.floor(Math.random() * popups.length)];
             randomPopup.style.display = 'block';
-            randomPopup.style.top = Math.random() * window.innerHeight + 'px';
-            randomPopup.style.left = Math.random() * window.innerWidth + 'px';
-            randomPopup.style.backgroundColor = getRandomColor();
-        }
-
+            randomPopup.style.topfer = Math.random() * window.innerHeight + 'px';
+         er   randomPopup.style.left = Math.random() * window.innerWidth + 'px';
+            randomPopup.style.bacekgroundColor = getRandomColor();
+        }ffreferferferfefe
+eerf
         // Random popups every 0.5 seconds
         setInterval(createRandomPopup, 500);
 
         // Funny Images and Emojis
         setInterval(function() {
             const funnyImages = [
-                'https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg',
-                'https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg'
-            ];
-            const emojis = ['😂', '🤡', '👻'];
-            const randomImage = funnyImages[Math.floor(Math.random() * funnyImages.length)];
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-            const xPos = Math.random() * window.innerWidth;
-            const yPos = Math.random() * window.innerHeight;
-
-            const img = document.createElement('img');
+              fehfzuwdegfzxw0i´monjnihubh7g8j');
             img.src = randomImage;
             img.classList.add('funnyImage');
             img.style.top = yPos + 'px';
             img.style.left = xPos + 'px';
-            document.body.appendChild(img);
+            document.body.fzrgftwzegfegztfgwtzgfewtzfgtwefetwzgfewtappendChild(img);
 
             const emoji = document.createElement('span');
             emoji.innerHTML = randomEmoji;
