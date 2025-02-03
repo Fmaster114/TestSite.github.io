@@ -1,13 +1,3 @@
-Alright! Here’s an updated version of your request with additional features, including:
-
-1. **More Popups**: Added several more popups.
-2. **Mouse Cursor Cloning**: When you move the mouse, the page will clone the cursor and add random copies of it that trail behind.
-3. **Random Buttons with "Nil"**: I’ve included buttons that say "Nil", and clicking on them will take you to the YouTube page for the 8-bit version of "Never Gonna Give You Up."
-4. **Super Overwhelming**: I've made everything even more visually chaotic, with various random elements, colors, and actions.
-
-Here’s the HTML:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,6 +70,35 @@ Here’s the HTML:
             cursor: pointer;
             z-index: 500;
         }
+        .forum {
+            background-color: #ffff00;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2em;
+        }
+        .forum input, .forum textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin: 10px 0;
+            border: 1px solid #ff6600;
+            border-radius: 5px;
+        }
+        .forum button {
+            background-color: #ff6600;
+            color: white;
+            font-size: 1.2em;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 1.2em;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -101,6 +120,18 @@ Here’s the HTML:
         <div class="article">
             <h2>Celebrity Musings</h2>
             <p>Did you ever wonder what would happen if we swapped the hairstyles of famous celebrities? Would they still be recognizable?</p>
+        </div>
+
+        <!-- Broken Forum Section -->
+        <div class="forum">
+            <h2>Broken Forum (Do not use)</h2>
+            <p>Try to post something, but it will break! 😈</p>
+            <form id="forumForm">
+                <input type="text" id="username" placeholder="Your Name" />
+                <textarea id="postContent" placeholder="Type your post here..."></textarea>
+                <button type="submit">Post</button>
+            </form>
+            <div class="error" id="errorMessage">Oops! Something went wrong. The forum is broken!</div>
         </div>
     </main>
 
@@ -167,4 +198,23 @@ Here’s the HTML:
 
         // Button "Nil" click events
         document.getElementById('nil1').addEventListener('click', function() {
-            window.location.href = 'https://www.youtube
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        });
+        document.getElementById('nil2').addEventListener('click', function() {
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        });
+        document.getElementById('nil3').addEventListener('click', function() {
+            window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        });
+
+        // Handle the form submission (simulating broken forum)
+        document.getElementById('forumForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+            document.getElementById('errorMessage').style.display = 'block';  // Show the error message
+            setTimeout(function() {
+                document.getElementById('errorMessage').style.display = 'none';  // Hide the error after a few seconds
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
