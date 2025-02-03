@@ -7,13 +7,25 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ff00ff;
             margin: 0;
             padding: 0;
             color: white;
             position: relative;
             overflow: auto; /* Enable scrolling */
+            animation: rainbowBackground 10s linear infinite; /* Rainbow background animation */
         }
+
+        @keyframes rainbowBackground {
+            0% { background: linear-gradient(45deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff); }
+            14% { background: linear-gradient(45deg, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000); }
+            28% { background: linear-gradient(45deg, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000, #ffff00); }
+            42% { background: linear-gradient(45deg, #00ffff, #0000ff, #ff00ff, #ff0000, #ffff00, #00ff00); }
+            57% { background: linear-gradient(45deg, #0000ff, #ff00ff, #ff0000, #ffff00, #00ff00, #00ffff); }
+            71% { background: linear-gradient(45deg, #ff00ff, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff); }
+            85% { background: linear-gradient(45deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff); }
+            100% { background: linear-gradient(45deg, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000); }
+        }
+
         header {
             background-color: #00ffff;
             color: black;
@@ -22,11 +34,13 @@
             font-size: 3em;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
+
         main {
             padding: 20px;
             max-width: 100%;
             margin: 0 auto;
         }
+
         .article {
             background-color: #ff0;
             margin-bottom: 20px;
@@ -35,6 +49,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             font-size: 1.5em;
         }
+
         footer {
             background-color: #ff00ff;
             color: black;
@@ -42,6 +57,7 @@
             text-align: center;
             font-size: 1.2em;
         }
+
         .popup {
             position: absolute;
             padding: 10px;
@@ -51,6 +67,7 @@
             display: none;
             text-align: center;
         }
+
         .mouseClone {
             position: absolute;
             width: 30px;
@@ -61,6 +78,7 @@
             opacity: 0.7;
             z-index: 2000;
         }
+
         button {
             position: absolute;
             padding: 10px;
@@ -72,6 +90,7 @@
             cursor: pointer;
             z-index: 500;
         }
+
         .virusPopup {
             background-color: #ff0000;
             color: white;
@@ -80,6 +99,7 @@
             animation: shake 0.5s ease-in-out infinite;
             border: 3px solid yellow;
         }
+
         @keyframes shake {
             0% { transform: translateX(0); }
             25% { transform: translateX(-10px); }
@@ -122,6 +142,9 @@
     <div id="popup4" class="popup virusPopup">ERROR: Critical Failure Detected!</div>
     <div id="popup5" class="popup virusPopup">WARNING: Virus Infection Detected!</div>
     <div id="popup6" class="popup">WARNING! You have been Rickrolled!</div>
+    <div id="popup7" class="popup">CRITICAL ERROR: SYSTEM MELTDOWN!</div>
+    <div id="popup8" class="popup">ALERT: Your PC is turning into a toaster!</div>
+    <div id="popup9" class="popup">FATAL ERROR: Keyboard is on fire!</div>
 
     <script>
         // Function to get random RGB color
