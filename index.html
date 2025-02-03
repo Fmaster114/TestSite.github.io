@@ -13,6 +13,7 @@
             position: relative;
             overflow: auto;
             animation: shake 0.5s ease-in-out infinite, flashBackground 0.2s infinite;
+            cursor: url('https://cdn.imgbin.com/5/25/18/imgbin-index-finger-cursor-pointer-pointer-finger-hm8Weq5LmhAnJzvJU6i5hNsqQ.jpg'), auto; /* Change this URL to your cursed cursor image */
         }
 
         @keyframes flashBackground {
@@ -80,6 +81,9 @@
             text-align: center;
             animation: shake 0.5s ease-in-out infinite;
             border: 3px solid yellow;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
 
         button {
@@ -260,6 +264,20 @@
             // Close the popup after download
             document.getElementById('downloadPopup').style.display = 'none';
         });
+
+        // Glitch sound effect
+        function playGlitchSound() {
+            const sounds = [
+                'https://www.soundjay.com/button/beep-07.wav', // Glitch sound 1
+                'https://www.soundjay.com/button/beep-08b.wav', // Glitch sound 2
+                'https://www.soundjay.com/button/beep-09.wav'  // Glitch sound 3
+            ];
+            var sound = new Audio(sounds[Math.floor(Math.random() * sounds.length)]);
+            sound.play();
+        }
+
+        // Play glitch sound at random intervals
+        setInterval(playGlitchSound, 1500); // Play every 1.5 seconds
     </script>
 </body>
 </html>
