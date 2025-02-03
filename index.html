@@ -3,41 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Down</title>
+    <title>Fake News Daily</title>
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f4f4f4;
         }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
+        header {
+            background-color: #333;
+            color: white;
             padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         .container {
-            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .main-content {
+            flex: 0 0 70%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        p {
-            font-size: 1.2rem;
-            opacity: 0.8;
+        .side-bar {
+            flex: 0 0 25%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .news-article {
+            margin-bottom: 20px;
+        }
+        .news-article h2 {
+            font-size: 1.5em;
+            margin: 0;
+            cursor: pointer;
+        }
+        .news-article p {
+            font-size: 1em;
+            color: #555;
+        }
+        .news-article a {
+            text-decoration: none;
+            color: #333;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Popup (Fullscreen) Styles */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+            z-index: 999;
+        }
+        .popup-content {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            text-align: left;
+        }
+        .popup-content h2 {
+            font-size: 2em;
+        }
+        .popup-content p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+        .popup-content .date {
+            font-size: 1em;
+            color: #aaa;
+        }
+        .popup-close {
+            background-color: #444;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .popup-close:hover {
+            background-color: #333;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>We're Experiencing Technical Issues</h1>
-        <p>Our site is currently down due to technical problems. We are working hard to resolve the issue. Please check back later.</p>
+
+<header>
+    <h1>Fake News Daily</h1>
+    <p>Your source for all the most unbelievable headlines!</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">World</a>
+    <a href="#">Technology</a>
+    <a href="#">Entertainment</a>
+    <a href="#">Sports</a>
+</nav>
+
+<div class="container">
+    <div class="main-content">
+        <div class="news-article" onclick="showPopup('Aliens Invade Downtown New York City', 'In an unprecedented event, alien spacecraft have landed in the heart of New York City. Authorities are baffled, but experts suggest this may be the beginning of a new era of intergalactic diplomacy...', '2025-02-03')">
+            <h2>Aliens Invade Downtown New York City</h2>
+            <p>In an unprecedented event, alien spacecraft have landed in the heart of New York City...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('World’s First Invisible Car to Hit the Market', 'Scientists at the leading tech company Invisible Motors have unveiled the world’s first fully functional invisible car. The vehicle promises to revolutionize transportation, but not everyone is convinced...', '2025-02-03')">
+            <h2>World’s First Invisible Car to Hit the Market</h2>
+            <p>Scientists at Invisible Motors have unveiled the world’s first fully functional invisible car...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Government Announces Plan to Make Mondays a National Holiday', 'In a move that has shocked political analysts, the government has declared that every Monday will be a national holiday, effective immediately. Critics have raised concerns about the impact on productivity...', '2025-02-03')">
+            <h2>Government Announces Plan to Make Mondays a National Holiday</h2>
+            <p>In a move that has shocked political analysts, the government has declared that every Monday will be a national holiday...</p>
+        </div>
     </div>
+
+    <div class="side-bar">
+        <h3>Top Stories</h3>
+        <ul>
+            <li><a href="#">Dinosaurs Resurrected Using DNA</a></li>
+            <li><a href="#">Scientists Prove Time Travel is Possible</a></li>
+            <li><a href="#">World’s Largest Pizza to Be Created on Mars</a></li>
+            <li><a href="#">Giant Robot to Serve as World’s First President</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Fake News Daily - All Rights Reserved</p>
+</footer>
+
+<!-- Fullscreen Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2 id="popup-title"></h2>
+        <p id="popup-content"></p>
+        <p class="date" id="popup-date"></p>
+        <button class="popup-close" onclick="closePopup()">Close</button>
+    </div>
+</div>
+
+<script>
+    // Function to display the popup
+    function showPopup(title, content, date) {
+        document.getElementById('popup-title').innerText = title;
+        document.getElementById('popup-content').innerText = content;
+        document.getElementById('popup-date').innerText = "Published on: " + date;
+        document.getElementById('popup').style.display = "flex"; // Show the popup
+    }
+
+    // Function to close the popup
+    function closePopup() {
+        document.getElementById('popup').style.display = "none"; // Hide the popup
+    }
+</script>
+
 </body>
 </html>
