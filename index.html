@@ -35,26 +35,33 @@
         }
         .container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             margin: 20px;
         }
         .main-content {
-            flex: 0 0 70%;
+            width: 90%;
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .side-bar {
-            flex: 0 0 25%;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .category {
+            display: none;
+        }
+        .category.active {
+            display: block;
         }
         .news-article {
             margin-bottom: 20px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .news-article img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 8px;
         }
         .news-article h2 {
             font-size: 1.5em;
@@ -127,97 +134,57 @@
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">World</a>
-    <a href="#">Technology</a>
-    <a href="#">Entertainment</a>
-    <a href="#">Sports</a>
+    <a href="#" onclick="showCategory('world')">World</a>
+    <a href="#" onclick="showCategory('technology')">Technology</a>
+    <a href="#" onclick="showCategory('entertainment')">Entertainment</a>
 </nav>
 
 <div class="container">
     <div class="main-content">
-        <!-- Example Articles, with onClick to open popup -->
-        <div class="news-article" onclick="showPopup('Aliens Invade Downtown New York City', 'In an unprecedented event, alien spacecraft have landed in the heart of New York City. Authorities are baffled, but experts suggest this may be the beginning of a new era of intergalactic diplomacy...', '2025-02-03')">
-            <h2>Aliens Invade Downtown New York City</h2>
-            <p>In an unprecedented event, alien spacecraft have landed in the heart of New York City...</p>
+        <!-- World Category -->
+        <div class="category" id="world">
+            <h2>World News</h2>
+            <div class="news-article" onclick="showPopup('Aliens Invade Downtown New York City', 'In an unprecedented event, alien spacecraft have landed in the heart of New York City. Authorities are baffled, but experts suggest this may be the beginning of a new era of intergalactic diplomacy...', '2025-02-03', 'https://static01.nyt.com/images/2020/07/28/us/28xp-UFO/28xp-UFO-videoSixteenByNineJumbo1600.jpg')">
+                <img src="https://static01.nyt.com/images/2020/07/28/us/28xp-UFO/28xp-UFO-videoSixteenByNineJumbo1600.jpg" alt="Aliens Invade Downtown New York City">
+                <div>
+                    <h3>Aliens Invade Downtown New York City</h3>
+                    <p>In an unprecedented event, alien spacecraft have landed in the heart of New York City...</p>
+                </div>
+            </div>
+
+            <!-- Add 14 more World Articles here with the same format as above -->
+
         </div>
 
-        <div class="news-article" onclick="showPopup('World’s First Invisible Car to Hit the Market', 'Scientists at the leading tech company Invisible Motors have unveiled the world’s first fully functional invisible car. The vehicle promises to revolutionize transportation, but not everyone is convinced...', '2025-02-03')">
-            <h2>World’s First Invisible Car to Hit the Market</h2>
-            <p>Scientists at Invisible Motors have unveiled the world’s first fully functional invisible car...</p>
+        <!-- Technology Category -->
+        <div class="category" id="technology">
+            <h2>Technology News</h2>
+            <div class="news-article" onclick="showPopup('World’s First Invisible Car to Hit the Market', 'Scientists at the leading tech company Invisible Motors have unveiled the world’s first fully functional invisible car. The vehicle promises to revolutionize transportation, but not everyone is convinced...', '2025-02-03', 'https://cdn.images.express.co.uk/img/dynamic/1/285x214/92419_1.jpg')">
+                <img src="https://cdn.images.express.co.uk/img/dynamic/1/285x214/92419_1.jpg" alt="Invisible Car">
+                <div>
+                    <h3>World’s First Invisible Car to Hit the Market</h3>
+                    <p>Scientists at Invisible Motors have unveiled the world’s first fully functional invisible car...</p>
+                </div>
+            </div>
+
+            <!-- Add 14 more Technology Articles here with the same format as above -->
+
         </div>
 
-        <div class="news-article" onclick="showPopup('Government Announces Plan to Make Mondays a National Holiday', 'In a move that has shocked political analysts, the government has declared that every Monday will be a national holiday, effective immediately. Critics have raised concerns about the impact on productivity...', '2025-02-03')">
-            <h2>Government Announces Plan to Make Mondays a National Holiday</h2>
-            <p>In a move that has shocked political analysts, the government has declared that every Monday will be a national holiday...</p>
+        <!-- Entertainment Category -->
+        <div class="category" id="entertainment">
+            <h2>Entertainment News</h2>
+            <div class="news-article" onclick="showPopup('Giant Robot to Serve as World’s First President', 'In an unprecedented political shift, a giant robot has been elected to serve as the world’s first AI president. The robot promises to solve global issues with logic and efficiency...', '2025-02-03', 'https://cdnb.artstation.com/p/assets/images/images/020/183/153/large/tod-ryan-iron-giant.jpg?1566747427')">
+                <img src="https://cdnb.artstation.com/p/assets/images/images/020/183/153/large/tod-ryan-iron-giant.jpg?1566747427" alt="Giant Robot">
+                <div>
+                    <h3>Giant Robot to Serve as World’s First President</h3>
+                    <p>A giant robot has been elected to serve as the world’s first AI president...</p>
+                </div>
+            </div>
+
+            <!-- Add 14 more Entertainment Articles here with the same format as above -->
+
         </div>
-
-        <!-- More Articles -->
-        <div class="news-article" onclick="showPopup('Dinosaurs Resurrected Using DNA', 'In a groundbreaking experiment, scientists have successfully resurrected dinosaurs using DNA technology, marking the first time in history these creatures have roamed the Earth in millions of years...', '2025-02-03')">
-            <h2>Dinosaurs Resurrected Using DNA</h2>
-            <p>In a groundbreaking experiment, scientists have successfully resurrected dinosaurs...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('Scientists Prove Time Travel is Possible', 'Scientists have developed the first working model for time travel, making it possible to send messages into the past or future. This invention could change the course of history...', '2025-02-03')">
-            <h2>Scientists Prove Time Travel is Possible</h2>
-            <p>Scientists have developed the first working model for time travel...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('World’s Largest Pizza to Be Created on Mars', 'A group of space entrepreneurs has announced plans to build the world’s largest pizza on Mars as part of their new interplanetary food venture...', '2025-02-03')">
-            <h2>World’s Largest Pizza to Be Created on Mars</h2>
-            <p>A group of space entrepreneurs has announced plans to build the world’s largest pizza on Mars...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('Giant Robot to Serve as World’s First President', 'In an unprecedented political shift, a giant robot has been elected to serve as the world’s first AI president. The robot promises to solve global issues with logic and efficiency...', '2025-02-03')">
-            <h2>Giant Robot to Serve as World’s First President</h2>
-            <p>A giant robot has been elected to serve as the world’s first AI president...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('Human Colonies on the Moon to Open Soon', 'A major space exploration company has announced plans to open human colonies on the Moon within the next decade, a move that could set the stage for interstellar expansion...', '2025-02-03')">
-            <h2>Human Colonies on the Moon to Open Soon</h2>
-            <p>A major space exploration company has announced plans to open human colonies on the Moon...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('Time Travelers Catching Up with the Past', 'A group of time travelers has returned from the future, bringing with them amazing technological advancements. They aim to help solve critical issues facing humanity...', '2025-02-03')">
-            <h2>Time Travelers Catching Up with the Past</h2>
-            <p>A group of time travelers has returned from the future, bringing with them amazing technological advancements...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('Flying Cars Set to Revolutionize Traffic', 'In a monumental breakthrough, a leading automotive company has unveiled the world’s first flying car. The vehicle promises to revolutionize urban mobility and reduce traffic congestion...', '2025-02-03')">
-            <h2>Flying Cars Set to Revolutionize Traffic</h2>
-            <p>A leading automotive company has unveiled the world’s first flying car...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('World’s First 3D Printed House Built in Space', 'Architects have unveiled the world’s first 3D printed house, constructed entirely in space using materials mined from asteroids. This marks the beginning of space-based real estate...', '2025-02-03')">
-            <h2>World’s First 3D Printed House Built in Space</h2>
-            <p>Architects have unveiled the world’s first 3D printed house, constructed entirely in space...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('Quantum Computers Now Able to Solve Real-World Problems', 'A breakthrough in quantum computing technology has made it possible for quantum computers to solve complex real-world problems that traditional computers cannot...', '2025-02-03')">
-            <h2>Quantum Computers Now Able to Solve Real-World Problems</h2>
-            <p>A breakthrough in quantum computing technology has made it possible for quantum computers to solve complex real-world problems...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('Invisibility Cloaks for Everyday Use', 'Scientists have successfully developed a working invisibility cloak, making it possible for people to blend into their surroundings with perfect camouflage...', '2025-02-03')">
-            <h2>Invisibility Cloaks for Everyday Use</h2>
-            <p>Scientists have successfully developed a working invisibility cloak...</p>
-        </div>
-
-        <div class="news-article" onclick="showPopup('First Successful Cloning of Extinct Animals', 'In a world-changing development, scientists have successfully cloned extinct species, bringing back animals thought to be lost forever...', '2025-02-03')">
-            <h2>First Successful Cloning of Extinct Animals</h2>
-            <p>In a world-changing development, scientists have successfully cloned extinct species...</p>
-        </div>
-
-    </div>
-
-    <div class="side-bar">
-        <h3>Top Stories</h3>
-        <ul>
-            <li><a href="#">Dinosaurs Resurrected Using DNA</a></li>
-            <li><a href="#">Scientists Prove Time Travel is Possible</a></li>
-            <li><a href="#">World’s Largest Pizza to Be Created on Mars</a></li>
-            <li><a href="#">Giant Robot to Serve as World’s First President</a></li>
-        </ul>
     </div>
 </div>
 
@@ -231,16 +198,18 @@
         <h2 id="popup-title"></h2>
         <p id="popup-content"></p>
         <p class="date" id="popup-date"></p>
+        <img src="" id="popup-image" alt="Article Image" style="width: 100%; max-width: 600px; border-radius: 8px; margin-top: 20px;">
         <button class="popup-close" onclick="closePopup()">Close</button>
     </div>
 </div>
 
 <script>
     // Function to display the popup
-    function showPopup(title, content, date) {
+    function showPopup(title, content, date, imageUrl) {
         document.getElementById('popup-title').innerText = title;
         document.getElementById('popup-content').innerText = content;
         document.getElementById('popup-date').innerText = "Published on: " + date;
+        document.getElementById('popup-image').src = imageUrl;
         document.getElementById('popup').style.display = "flex"; // Show the popup
     }
 
@@ -248,6 +217,18 @@
     function closePopup() {
         document.getElementById('popup').style.display = "none"; // Hide the popup
     }
+
+    // Function to switch between categories
+    function showCategory(category) {
+        const categories = document.querySelectorAll('.category');
+        categories.forEach(function (cat) {
+            cat.classList.remove('active');
+        });
+        document.getElementById(category).classList.add('active');
+    }
+
+    // Default to show World category
+    showCategory('world');
 </script>
 
 </body>
