@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Most Chaotic Site Ever</title>
+    <title>The Worst Site Ever</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,24 +12,16 @@
             color: white;
             position: relative;
             overflow: auto;
-            animation: shake 0.5s ease-in-out infinite, flashBackground 0.2s infinite;
-            cursor: url('https://cdn.imgbin.com/5/25/18/imgbin-index-finger-cursor-pointer-pointer-finger-hm8Weq5LmhAnJzvJU6i5hNsqQ.jpg'), auto; /* Change this URL to your cursed cursor image */
+            animation: flashBackground 0.5s infinite;
+            cursor: url('https://cdn.imgbin.com/5/25/18/imgbin-index-finger-cursor-pointer-pointer-finger-hm8Weq5LmhAnJzvJU6i5hNsqQ.jpg'), auto;
         }
 
         @keyframes flashBackground {
             0% { background: red; }
             25% { background: yellow; }
-            50% { background: green; }
-            75% { background: blue; }
+            50% { background: blue; }
+            75% { background: green; }
             100% { background: purple; }
-        }
-
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-10px); }
-            100% { transform: translateX(0); }
         }
 
         header {
@@ -98,86 +90,68 @@
             z-index: 500;
         }
 
-        .mouseClone {
+        .funnyImage {
             position: absolute;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: #ffcc00;
-            pointer-events: none;
-            opacity: 0.7;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            z-index: 1000;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 3em;
             z-index: 2000;
         }
 
-        .cursorPath {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Red_X.svg/512px-Red_X.svg.png') no-repeat center center;
-            background-size: contain;
-            pointer-events: none;
-            z-index: 3000;
+        /* Tetris Mini Game */
+        #tetris {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 200px;
+            height: 400px;
+            background-color: black;
+            border: 2px solid white;
         }
 
-        /* Full screen popup */
-        #downloadPopup {
-            position: fixed;
-            top: 0;
-            left: 0;
+        #gameCanvas {
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            font-size: 3em;
-            display: none;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            animation: shake 0.5s ease-in-out infinite;
+            background-color: black;
+            display: block;
+            margin: 0 auto;
         }
-
-        /* Close button */
-        #closeButton {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 3em;
-            color: red;
-            cursor: pointer;
-            z-index: 10000;
-        }
-
     </style>
 </head>
 <body>
     <header>
-        The Most Chaotic Site Ever
+        The Worst Site Ever
     </header>
 
     <main>
         <div class="article">
             <h2>Breaking News!</h2>
-            <p>Alert! You’ve just unlocked the secret portal to an unlimited amount of chaos and randomness!</p>
+            <p>Alert! Your computer is now infected with the SuperCrazyVirusX! DO NOT SHUT DOWN!</p>
         </div>
 
         <div class="article">
-            <h2>Latest Virus Warning!</h2>
-            <p>URGENT! Your computer may have just been infected with the SuperDuperHyperVirus123. DO NOT CLOSE THIS PAGE!</p>
+            <h2>Latest Update:</h2>
+            <p>Guess what? The internet is broken. You are now connected to the "Worst Website Ever"!</p>
         </div>
         
         <div class="article">
             <h2>Official Announcement:</h2>
-            <p>Congratulations! You are the 1,000,000th visitor, and you've won a lifetime supply of confusion!</p>
+            <p>Oh no, your keyboard just turned into a waffle iron! Proceed with caution!</p>
         </div>
     </main>
 
     <footer>
-        &copy; 2025 The Most Chaotic Site Ever. All Rights Reserved.
+        &copy; 2025 The Worst Site Ever. All Rights Reserved.
     </footer>
 
     <!-- Popups -->
-    <div id="popup1" class="popup">System Alert: Something went terribly wrong!</div>
+    <div id="popup1" class="popup">System Error: Something went terribly wrong!</div>
     <div id="popup2" class="popup">Warning! A dangerous virus was detected!</div>
     <div id="popup3" class="popup">Error 404: Brain cells not found.</div>
     <div id="popup4" class="popup virusPopup">ERROR: Critical Failure Detected!</div>
@@ -187,11 +161,24 @@
     <div id="popup8" class="popup">ALERT: Your PC is turning into a toaster!</div>
     <div id="popup9" class="popup">FATAL ERROR: Keyboard is on fire!</div>
 
-    <!-- Full screen download popup -->
-    <div id="downloadPopup">
-        <p>Click to Download!</p>
-        <button id="downloadButton">Download Files</button>
-        <span id="closeButton" onclick="closePopup()">X</span>
+    <!-- Random Funny Images -->
+    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 100px; left: 200px;">
+    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 400px; left: 800px;">
+    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 600px; left: 100px;">
+    
+    <!-- Random Emojis -->
+    <span class="emoji" style="top: 300px; left: 500px;">😂</span>
+    <span class="emoji" style="top: 150px; left: 800px;">🤡</span>
+    <span class="emoji" style="top: 500px; left: 100px;">👻</span>
+
+    <!-- Non-functional Buttons -->
+    <button style="top: 300px; left: 500px;">Click Me!</button>
+    <button style="top: 500px; left: 700px;">I Do Nothing!</button>
+    <button style="top: 200px; left: 100px;">Don't Press Me!</button>
+
+    <!-- Tetris Minigame -->
+    <div id="tetris">
+        <canvas id="gameCanvas"></canvas>
     </div>
 
     <script>
@@ -213,123 +200,65 @@
             randomPopup.style.backgroundColor = getRandomColor();
         }
 
-        // Mouse cloning effect
-        function cloneMouse(e) {
-            var mouseClone = document.createElement('div');
-            mouseClone.classList.add('mouseClone');
-            document.body.appendChild(mouseClone);
-
-            mouseClone.style.top = e.pageY - 15 + 'px';
-            mouseClone.style.left = e.pageX - 15 + 'px';
-            setTimeout(function() {
-                mouseClone.remove();
-            }, 200);
-        }
-
-        // Cursor path X effect
-        function createCursorPath(e) {
-            var cursorPath = document.createElement('div');
-            cursorPath.classList.add('cursorPath');
-            document.body.appendChild(cursorPath);
-
-            cursorPath.style.top = e.pageY - 15 + 'px';
-            cursorPath.style.left = e.pageX - 15 + 'px';
-
-            setTimeout(function() {
-                cursorPath.remove();
-            }, 300); // Show the X for 300ms
-        }
-
         // Random popups every 0.5 seconds
         setInterval(createRandomPopup, 500);
 
-        // Mouse move listener
-        document.addEventListener('mousemove', function(e) {
-            cloneMouse(e);
-            createCursorPath(e);
-        });
-
-        // Click anywhere on the screen to trigger file downloads
-        document.addEventListener('click', function() {
-            // Create multiple txt files
-            const fileContents = [
-                "This is a text file 1.",
-                "This is a text file 2.",
-                "This is a text file 3.",
-                "This is a text file 4.",
-                "This is a text file 5."
+        // Funny Images and Emojis
+        setInterval(function() {
+            const funnyImages = [
+                'https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg',
+                'https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg'
             ];
+            const emojis = ['😂', '🤡', '👻'];
+            const randomImage = funnyImages[Math.floor(Math.random() * funnyImages.length)];
+            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            const xPos = Math.random() * window.innerWidth;
+            const yPos = Math.random() * window.innerHeight;
 
-            fileContents.forEach((content, index) => {
-                const blob = new Blob([content], { type: 'text/plain' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = `file${index + 1}.txt`;
-                link.click();
-            });
-        });
+            const img = document.createElement('img');
+            img.src = randomImage;
+            img.classList.add('funnyImage');
+            img.style.top = yPos + 'px';
+            img.style.left = xPos + 'px';
+            document.body.appendChild(img);
 
-        // Creating fake virus popups
-        setInterval(function() {
-            var virusPopup = document.createElement('div');
-            virusPopup.classList.add('virusPopup');
-            virusPopup.innerText = "VIRUS DETECTED! CLICK OK TO FIX";
-            virusPopup.style.top = Math.random() * window.innerHeight + 'px';
-            virusPopup.style.left = Math.random() * window.innerWidth + 'px';
-            document.body.appendChild(virusPopup);
-        }, 500);
+            const emoji = document.createElement('span');
+            emoji.innerHTML = randomEmoji;
+            emoji.classList.add('emoji');
+            emoji.style.top = yPos + 'px';
+            emoji.style.left = xPos + 'px';
+            document.body.appendChild(emoji);
+        }, 2000);
 
-        // Add more chaos and flashing elements
-        setInterval(function() {
-            document.body.style.backgroundColor = getRandomColor();
-        }, 100);  // Flash every 100ms
+        // Tetris Minigame Logic
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 200;
+        canvas.height = 400;
 
-        // Show the download popup
-        setTimeout(function() {
-            document.getElementById('downloadPopup').style.display = 'flex';
-        }, 2000); // Show after 2 seconds
-
-        // Close the download popup
-        function closePopup() {
-            document.getElementById('downloadPopup').style.display = 'none';
+        // Simple Tetris Game (Just a placeholder for now)
+        function drawTetris() {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'red';
+            ctx.fillRect(50, 50, 50, 50);
         }
 
-        // Download multiple .txt files when button is clicked
-        document.getElementById('downloadButton').addEventListener('click', function() {
-            // Create multiple txt files
-            const fileContents = [
-                "This is a text file 1.",
-                "This is a text file 2.",
-                "This is a text file 3.",
-                "This is a text file 4.",
-                "This is a text file 5."
+        drawTetris(); // Drawing the Tetris block
+
+        // Function to simulate random errors
+        setInterval(function() {
+            const errorMessages = [
+                'Something went wrong!',
+                'The internet is broken!',
+                'Whoops, everything crashed!',
+                'Error: You are being monitored!',
+                'Warning: No more cookies!'
             ];
+            const error = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+            alert(error);
+        }, 3000); // Show error every 3 seconds
 
-            fileContents.forEach((content, index) => {
-                const blob = new Blob([content], { type: 'text/plain' });
-                const link = document.createElement('a');
-                link.href = URL.createObjectURL(blob);
-                link.download = `file${index + 1}.txt`;
-                link.click();
-            });
-
-            // Close the popup after download
-            document.getElementById('downloadPopup').style.display = 'none';
-        });
-
-        // Glitch sound effect
-        function playGlitchSound() {
-            const sounds = [
-                'https://www.soundjay.com/button/beep-07.wav', // Glitch sound 1
-                'https://www.soundjay.com/button/beep-08b.wav', // Glitch sound 2
-                'https://www.soundjay.com/button/beep-09.wav'  // Glitch sound 3
-            ];
-            var sound = new Audio(sounds[Math.floor(Math.random() * sounds.length)]);
-            sound.play();
-        }
-
-        // Play glitch sound at random intervals
-        setInterval(playGlitchSound, 1500); // Play every 1.5 seconds
     </script>
 </body>
 </html>
