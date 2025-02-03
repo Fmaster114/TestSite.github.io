@@ -37,13 +37,16 @@
             display: flex;
             justify-content: center;
             margin: 20px;
+            flex-wrap: wrap;
         }
         .main-content {
-            width: 90%;
+            width: 100%;
+            max-width: 1200px;
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
         .category {
             display: none;
@@ -56,6 +59,8 @@
             cursor: pointer;
             display: flex;
             align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
         .news-article img {
             width: 100px;
@@ -63,13 +68,14 @@
             margin-right: 20px;
             border-radius: 8px;
         }
-        .news-article h2 {
-            font-size: 1.5em;
+        .news-article h3 {
+            font-size: 1.4em;
             margin: 0;
         }
         .news-article p {
             font-size: 1em;
             color: #555;
+            margin-top: 5px;
         }
         footer {
             text-align: center;
@@ -112,6 +118,9 @@
             font-size: 1em;
             color: #aaa;
         }
+        .popup-content .image-container {
+            margin-top: 20px;
+        }
         .popup-close {
             background-color: #444;
             color: white;
@@ -123,6 +132,19 @@
         }
         .popup-close:hover {
             background-color: #333;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .news-article {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .news-article img {
+                margin-bottom: 15px;
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
@@ -151,9 +173,7 @@
                     <p>In an unprecedented event, alien spacecraft have landed in the heart of New York City...</p>
                 </div>
             </div>
-
             <!-- Add 14 more World Articles here with the same format as above -->
-
         </div>
 
         <!-- Technology Category -->
@@ -166,9 +186,7 @@
                     <p>Scientists at Invisible Motors have unveiled the world’s first fully functional invisible car...</p>
                 </div>
             </div>
-
             <!-- Add 14 more Technology Articles here with the same format as above -->
-
         </div>
 
         <!-- Entertainment Category -->
@@ -181,9 +199,7 @@
                     <p>A giant robot has been elected to serve as the world’s first AI president...</p>
                 </div>
             </div>
-
             <!-- Add 14 more Entertainment Articles here with the same format as above -->
-
         </div>
     </div>
 </div>
@@ -198,7 +214,9 @@
         <h2 id="popup-title"></h2>
         <p id="popup-content"></p>
         <p class="date" id="popup-date"></p>
-        <img src="" id="popup-image" alt="Article Image" style="width: 100%; max-width: 600px; border-radius: 8px; margin-top: 20px;">
+        <div class="image-container">
+            <img src="" id="popup-image" alt="Article Image" style="width: 100%; max-width: 600px; border-radius: 8px; margin-top: 20px;">
+        </div>
         <button class="popup-close" onclick="closePopup()">Close</button>
     </div>
 </div>
