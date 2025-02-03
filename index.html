@@ -211,10 +211,6 @@
             randomPopup.style.top = Math.random() * window.innerHeight + 'px';
             randomPopup.style.left = Math.random() * window.innerWidth + 'px';
             randomPopup.style.backgroundColor = getRandomColor();
-
-            setTimeout(function() {
-                randomPopup.style.display = 'none';
-            }, 1000);
         }
 
         // Mouse cloning effect
@@ -281,9 +277,6 @@
             virusPopup.style.top = Math.random() * window.innerHeight + 'px';
             virusPopup.style.left = Math.random() * window.innerWidth + 'px';
             document.body.appendChild(virusPopup);
-            setTimeout(function() {
-                virusPopup.remove();
-            }, 3000);
         }, 500);
 
         // Add more chaos and flashing elements
