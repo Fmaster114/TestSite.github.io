@@ -54,19 +54,15 @@
         }
         .news-article {
             margin-bottom: 20px;
+            cursor: pointer;
         }
         .news-article h2 {
             font-size: 1.5em;
             margin: 0;
-            cursor: pointer;
         }
         .news-article p {
             font-size: 1em;
             color: #555;
-        }
-        .news-article a {
-            text-decoration: none;
-            color: #333;
         }
         footer {
             text-align: center;
@@ -140,6 +136,7 @@
 
 <div class="container">
     <div class="main-content">
+        <!-- Example Articles, with onClick to open popup -->
         <div class="news-article" onclick="showPopup('Aliens Invade Downtown New York City', 'In an unprecedented event, alien spacecraft have landed in the heart of New York City. Authorities are baffled, but experts suggest this may be the beginning of a new era of intergalactic diplomacy...', '2025-02-03')">
             <h2>Aliens Invade Downtown New York City</h2>
             <p>In an unprecedented event, alien spacecraft have landed in the heart of New York City...</p>
@@ -154,6 +151,63 @@
             <h2>Government Announces Plan to Make Mondays a National Holiday</h2>
             <p>In a move that has shocked political analysts, the government has declared that every Monday will be a national holiday...</p>
         </div>
+
+        <!-- More Articles -->
+        <div class="news-article" onclick="showPopup('Dinosaurs Resurrected Using DNA', 'In a groundbreaking experiment, scientists have successfully resurrected dinosaurs using DNA technology, marking the first time in history these creatures have roamed the Earth in millions of years...', '2025-02-03')">
+            <h2>Dinosaurs Resurrected Using DNA</h2>
+            <p>In a groundbreaking experiment, scientists have successfully resurrected dinosaurs...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Scientists Prove Time Travel is Possible', 'Scientists have developed the first working model for time travel, making it possible to send messages into the past or future. This invention could change the course of history...', '2025-02-03')">
+            <h2>Scientists Prove Time Travel is Possible</h2>
+            <p>Scientists have developed the first working model for time travel...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('World’s Largest Pizza to Be Created on Mars', 'A group of space entrepreneurs has announced plans to build the world’s largest pizza on Mars as part of their new interplanetary food venture...', '2025-02-03')">
+            <h2>World’s Largest Pizza to Be Created on Mars</h2>
+            <p>A group of space entrepreneurs has announced plans to build the world’s largest pizza on Mars...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Giant Robot to Serve as World’s First President', 'In an unprecedented political shift, a giant robot has been elected to serve as the world’s first AI president. The robot promises to solve global issues with logic and efficiency...', '2025-02-03')">
+            <h2>Giant Robot to Serve as World’s First President</h2>
+            <p>A giant robot has been elected to serve as the world’s first AI president...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Human Colonies on the Moon to Open Soon', 'A major space exploration company has announced plans to open human colonies on the Moon within the next decade, a move that could set the stage for interstellar expansion...', '2025-02-03')">
+            <h2>Human Colonies on the Moon to Open Soon</h2>
+            <p>A major space exploration company has announced plans to open human colonies on the Moon...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Time Travelers Catching Up with the Past', 'A group of time travelers has returned from the future, bringing with them amazing technological advancements. They aim to help solve critical issues facing humanity...', '2025-02-03')">
+            <h2>Time Travelers Catching Up with the Past</h2>
+            <p>A group of time travelers has returned from the future, bringing with them amazing technological advancements...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Flying Cars Set to Revolutionize Traffic', 'In a monumental breakthrough, a leading automotive company has unveiled the world’s first flying car. The vehicle promises to revolutionize urban mobility and reduce traffic congestion...', '2025-02-03')">
+            <h2>Flying Cars Set to Revolutionize Traffic</h2>
+            <p>A leading automotive company has unveiled the world’s first flying car...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('World’s First 3D Printed House Built in Space', 'Architects have unveiled the world’s first 3D printed house, constructed entirely in space using materials mined from asteroids. This marks the beginning of space-based real estate...', '2025-02-03')">
+            <h2>World’s First 3D Printed House Built in Space</h2>
+            <p>Architects have unveiled the world’s first 3D printed house, constructed entirely in space...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Quantum Computers Now Able to Solve Real-World Problems', 'A breakthrough in quantum computing technology has made it possible for quantum computers to solve complex real-world problems that traditional computers cannot...', '2025-02-03')">
+            <h2>Quantum Computers Now Able to Solve Real-World Problems</h2>
+            <p>A breakthrough in quantum computing technology has made it possible for quantum computers to solve complex real-world problems...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('Invisibility Cloaks for Everyday Use', 'Scientists have successfully developed a working invisibility cloak, making it possible for people to blend into their surroundings with perfect camouflage...', '2025-02-03')">
+            <h2>Invisibility Cloaks for Everyday Use</h2>
+            <p>Scientists have successfully developed a working invisibility cloak...</p>
+        </div>
+
+        <div class="news-article" onclick="showPopup('First Successful Cloning of Extinct Animals', 'In a world-changing development, scientists have successfully cloned extinct species, bringing back animals thought to be lost forever...', '2025-02-03')">
+            <h2>First Successful Cloning of Extinct Animals</h2>
+            <p>In a world-changing development, scientists have successfully cloned extinct species...</p>
+        </div>
+
     </div>
 
     <div class="side-bar">
