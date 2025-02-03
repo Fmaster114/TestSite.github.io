@@ -24,70 +24,24 @@
             100% { background: purple; }
         }
 
-        header {
-            background-color: #ff00ff;
-            color: black;
-            padding: 20px;
-            text-align: center;
-            font-size: 3em;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        }
-
-        main {
-            padding: 20px;
-            max-width: 100%;
-            margin: 0 auto;
-        }
-
-        .article {
-            background-color: #ff0;
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            font-size: 1.5em;
-        }
-
-        footer {
-            background-color: #ff00ff;
-            color: black;
-            padding: 10px;
-            text-align: center;
-            font-size: 1.2em;
-        }
-
-        .popup {
-            position: absolute;
-            padding: 10px;
-            font-size: 2em;
-            border-radius: 10px;
-            z-index: 1000;
-            display: none;
-            text-align: center;
-        }
-
         .virusPopup {
-            background-color: #ff0000;
+            position: absolute;
+            background-color: red;
             color: white;
-            font-size: 3em;
-            text-align: center;
-            animation: shake 0.5s ease-in-out infinite;
-            border: 3px solid yellow;
+            font-size: 2em;
             padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            border-radius: 10px;
+            border: 3px solid yellow;
+            animation: shake 0.5s ease-in-out infinite;
+            z-index: 9999;
         }
 
-        button {
-            position: absolute;
-            padding: 10px;
-            background-color: #ff0099;
-            color: white;
-            font-size: 1.5em;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            z-index: 500;
+        @keyframes shake {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, 5px); }
+            50% { transform: translate(5px, -5px); }
+            75% { transform: translate(-5px, 5px); }
+            100% { transform: translate(5px, -5px); }
         }
 
         .funnyImage {
@@ -104,7 +58,6 @@
             z-index: 2000;
         }
 
-        /* Tetris Mini Game */
         #tetris {
             position: fixed;
             bottom: 10px;
@@ -119,8 +72,6 @@
             width: 100%;
             height: 100%;
             background-color: black;
-            display: block;
-            margin: 0 auto;
         }
     </style>
 </head>
@@ -134,117 +85,59 @@
             <h2>Breaking News!</h2>
             <p>Alert! Your computer is now infected with the SuperCrazyVirusX! DO NOT SHUT DOWN!</p>
         </div>
-
-        <div class="article">
-            <h2>Latest Update:</h2>
-            <p>Guess what? The internet is broken. You are now connected to the "Worst Website Ever"!</p>
-        </div>
-        
-        <div class="article">
-            <h2>Official Announcement:</h2>
-            <p>Oh no, your keyboard just turned into a waffle iron! Proceed with caution!</p>
-        </div>
     </main>
 
-    <footer>
-        &copy; 2025 The Worst Site Ever. All Rights Reserved.
-    </footer>
-
-    <!-- Popups -->
-    <div id="popup1" class="popup">System Error: Something went terribly wrong!</div>
-    <div id="popup2" class="popup">Warning! A dangerous virus was detected!</div>
-    <div id="popup3" class="popup">Error 404: Brain cells not found.</div>
-    <div id="popup4" class="popup virusPopup">ERROR: Critical Failure Detected!</div>
-    <div id="popup5" class="popup virusPopup">WARNING: Virus Infection Detected!</div>
-    <div id="popup6" class="popup">WARNING! You have been Rickrolled!</div>
-    <div id="popup7" class="popup">CRITICAL ERROR: SYSTEM MELTDOWN!</div>
-    <div id="popup8" class="popup">ALERT: Your PC is turning into a toaster!</div>
-    <div id="popup9" class="popup">FATAL ERROR: Keyboard is on fire!</div>
-
-    <!-- Random Funny Images -->
-    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 100px; left: 200px;">
-    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 400px; left: 800px;">
-    <img src="https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg" class="funnyImage" style="top: 600px; left: 100px;">
-    
-    <!-- Random Emojis -->
-    <span class="emoji" style="top: 300px; left: 500px;">😂</span>
-    <span class="emoji" style="top: 150px; left: 800px;">🤡</span>
-    <span class="emoji" style="top: 500px; left: 100px;">👻</span>
-
-    <!-- Non-functional Buttons -->
-    <button style="top: 300px; left: 500px;">Click Me!</button>
-    <button style="top: 500px; left: 700px;">I Do Nothing!</button>
-    <button style="top: 200px; left: 100px;">Don't Press Me!</button>
-
-    <!-- Tetris Minigame -->
     <div id="tetris">
         <canvas id="gameCanvas"></canvas>
     </div>
 
     <script>
-        // Function to get random RGB color
-        function getRandomColor() {
-            var r = Math.floor(Math.random() * 256);
-            var g = Math.floor(Math.random() * 256);
-            var b = Math.floor(Math.random() * 256);
-            return `rgb(${r}, ${g}, ${b})`;
+        function createVirusPopup() {
+            let popup = document.createElement("div");
+            popup.className = "virusPopup";
+            popup.innerText = "VIRUS DETECTED! Your system is at risk!";
+            popup.style.top = Math.random() * window.innerHeight + "px";
+            popup.style.left = Math.random() * window.innerWidth + "px";
+            document.body.appendChild(popup);
         }
+        setInterval(createVirusPopup, 2000);
 
-        // Function to create random popup
-        function createRandomPopup() {
-            var popups = document.querySelectorAll('.popup');
-            var randomPopup = popups[Math.floor(Math.random() * popups.length)];
-            randomPopup.style.display = 'block';
-            randomPopup.style.top = Math.random() * window.innerHeight + 'px';
-            randomPopup.style.left = Math.random() * window.innerWidth + 'px';
-            randomPopup.style.backgroundColor = getRandomColor();
-        }
-
-        // Random popups every 0.5 seconds
-        setInterval(createRandomPopup, 500);
-
-        // Funny Images and Emojis
-        setInterval(function() {
+        function createFunnyElements() {
             const funnyImages = [
-                'https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg',
                 'https://i.pinimg.com/originals/7a/27/0d/7a270d647b5827d7e2cf8726b9d40e1d.jpg'
             ];
             const emojis = ['😂', '🤡', '👻'];
-            const randomImage = funnyImages[Math.floor(Math.random() * funnyImages.length)];
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
             const xPos = Math.random() * window.innerWidth;
             const yPos = Math.random() * window.innerHeight;
 
             const img = document.createElement('img');
-            img.src = randomImage;
+            img.src = funnyImages[0];
             img.classList.add('funnyImage');
             img.style.top = yPos + 'px';
             img.style.left = xPos + 'px';
             document.body.appendChild(img);
 
             const emoji = document.createElement('span');
-            emoji.innerHTML = randomEmoji;
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
             emoji.classList.add('emoji');
             emoji.style.top = yPos + 'px';
             emoji.style.left = xPos + 'px';
             document.body.appendChild(emoji);
-        }, 2000);
+        }
+        setInterval(createFunnyElements, 2000);
 
-        // Tetris Minigame Logic
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = 200;
         canvas.height = 400;
 
-        // Simple Tetris Game (Just a placeholder for now)
         function drawTetris() {
             ctx.fillStyle = 'black';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = 'red';
             ctx.fillRect(50, 50, 50, 50);
         }
-
-        drawTetris(); // Drawing the Tetris block
+        drawTetris();
     </script>
 </body>
 </html>
