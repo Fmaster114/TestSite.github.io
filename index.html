@@ -226,9 +226,11 @@
         // Mouse move listener
         document.addEventListener('mousemove', cloneMouse);
 
-        // Click anywhere on the screen to go to the YouTube link
+        // Click anywhere on the screen to go to the YouTube link after 5 seconds
         document.addEventListener('click', function() {
-            window.location.href = 'https://www.youtube.com/watch?v=9NcPvmk4vfo';
+            setTimeout(function() {
+                window.open('https://www.youtube.com/watch?v=9NcPvmk4vfo', '_blank');
+            }, 5000); // Redirect after 5 seconds
         });
 
         // Creating fake virus popups
