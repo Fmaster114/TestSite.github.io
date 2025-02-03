@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Greatest Site Ever</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff00ff;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        header {
+            background-color: #00ffff;
+            color: black;
+            padding: 20px;
+            text-align: center;
+            font-size: 3em;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        main {
+            padding: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .article {
+            background-color: #ff0;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            font-size: 1.5em;
+        }
+        footer {
+            background-color: #ff00ff;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .popup {
+            position: absolute;
+            padding: 10px;
+            font-size: 2em;
+            border-radius: 10px;
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        The Greatest Site Ever
+    </header>
+
+    <main>
+        <div class="article">
+            <h2>Some Animals are Hideous</h2>
+            <p>Animals are amazing, but some are downright hideous! Let's take a moment to appreciate the weirdest creatures on Earth...</p>
+        </div>
+
+        <div class="article">
+            <h2>Random Thoughts</h2>
+            <p>Why do we always assume cats land on their feet? What if gravity is secretly messing with them?</p>
+        </div>
+        
+        <div class="article">
+            <h2>Celebrity Musings</h2>
+            <p>Did you ever wonder what would happen if we swapped the hairstyles of famous celebrities? Would they still be recognizable?</p>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 The Greatest Site Ever. All Rights Reserved.
+    </footer>
+
+    <!-- Popup divs -->
+    <div id="popup1" class="popup"></div>
+    <div id="popup2" class="popup"></div>
+    <div id="popup3" class="popup"></div>
+
+    <script>
+        // Function to get random RGB color
+        function getRandomColor() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Function to generate random popup
+        function createRandomPopup() {
+            var popups = document.querySelectorAll('.popup');
+            var randomPopup = popups[Math.floor(Math.random() * popups.length)];
+            var randomText = ["BOOM!", "WOW!", "YEAH!", "OH NO!", "LOL!", "EPIC!", "POW!", "BAM!"];
+            randomPopup.style.display = 'block';
+            randomPopup.style.top = Math.random() * window.innerHeight + 'px';
+            randomPopup.style.left = Math.random() * window.innerWidth + 'px';
+            randomPopup.style.backgroundColor = getRandomColor();
+            randomPopup.textContent = randomText[Math.floor(Math.random() * randomText.length)];
+
+            // Hide the popup after 1.5 seconds
+            setTimeout(function() {
+                randomPopup.style.display = 'none';
+            }, 1500);
+        }
+
+        // Random popups every 1.5 seconds
+        setInterval(createRandomPopup, 1500);
+    </script>
+</body>
+</html>
