@@ -97,7 +97,7 @@
             cursor: pointer;
             z-index: 500;
         }
-        
+
         .mouseClone {
             position: absolute;
             width: 30px;
@@ -125,6 +125,17 @@
             align-items: center;
             z-index: 9999;
             animation: shake 0.5s ease-in-out infinite;
+        }
+
+        /* Close button */
+        #closeButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 3em;
+            color: red;
+            cursor: pointer;
+            z-index: 10000;
         }
 
     </style>
@@ -170,6 +181,7 @@
     <div id="downloadPopup">
         <p>Click to Download!</p>
         <button id="downloadButton">Download Files</button>
+        <span id="closeButton" onclick="closePopup()">X</span>
     </div>
 
     <script>
@@ -242,6 +254,11 @@
             document.getElementById('downloadPopup').style.display = 'flex';
         }, 2000); // Show after 2 seconds
 
+        // Close the download popup
+        function closePopup() {
+            document.getElementById('downloadPopup').style.display = 'none';
+        }
+
         // Download multiple .txt files when button is clicked
         document.getElementById('downloadButton').addEventListener('click', function() {
             // Create multiple txt files
@@ -278,6 +295,13 @@
 
         // Play glitch sound at random intervals
         setInterval(playGlitchSound, 1500); // Play every 1.5 seconds
+
+        // Move the close button with the cursor
+        document.addEventListener('mousemove', function(event) {
+            var closeButton = document.getElementById('closeButton');
+            closeButton.style.top = event.pageY + 'px';
+            closeButton.style.left = event.pageX + 'px';
+        });
     </script>
 </body>
 </html>
