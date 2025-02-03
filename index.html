@@ -61,12 +61,16 @@
             align-items: center;
             border-bottom: 1px solid #ddd;
             padding-bottom: 10px;
+            justify-content: space-between; /* Align text to left, image to right */
         }
         .news-article img {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
+            width: 80px;  /* Smaller image size */
+            height: 80px;
             border-radius: 8px;
+        }
+        .news-article .text-content {
+            flex: 1; /* Makes the text section take remaining space */
+            margin-right: 20px; /* Adds space between text and image */
         }
         .news-article h3 {
             font-size: 1.4em;
@@ -167,11 +171,11 @@
         <div class="category" id="world">
             <h2>World News</h2>
             <div class="news-article" onclick="showPopup('Aliens Invade Downtown New York City', 'In an unprecedented event, alien spacecraft have landed in the heart of New York City. Authorities are baffled, but experts suggest this may be the beginning of a new era of intergalactic diplomacy...', '2025-02-03', 'https://static01.nyt.com/images/2020/07/28/us/28xp-UFO/28xp-UFO-videoSixteenByNineJumbo1600.jpg')">
-                <img src="https://static01.nyt.com/images/2020/07/28/us/28xp-UFO/28xp-UFO-videoSixteenByNineJumbo1600.jpg" alt="Aliens Invade Downtown New York City">
-                <div>
+                <div class="text-content">
                     <h3>Aliens Invade Downtown New York City</h3>
                     <p>In an unprecedented event, alien spacecraft have landed in the heart of New York City...</p>
                 </div>
+                <img src="https://static01.nyt.com/images/2020/07/28/us/28xp-UFO/28xp-UFO-videoSixteenByNineJumbo1600.jpg" alt="Aliens Invade Downtown New York City">
             </div>
             <!-- Add 14 more World Articles here with the same format as above -->
         </div>
@@ -180,11 +184,11 @@
         <div class="category" id="technology">
             <h2>Technology News</h2>
             <div class="news-article" onclick="showPopup('World’s First Invisible Car to Hit the Market', 'Scientists at the leading tech company Invisible Motors have unveiled the world’s first fully functional invisible car. The vehicle promises to revolutionize transportation, but not everyone is convinced...', '2025-02-03', 'https://cdn.images.express.co.uk/img/dynamic/1/285x214/92419_1.jpg')">
-                <img src="https://cdn.images.express.co.uk/img/dynamic/1/285x214/92419_1.jpg" alt="Invisible Car">
-                <div>
+                <div class="text-content">
                     <h3>World’s First Invisible Car to Hit the Market</h3>
                     <p>Scientists at Invisible Motors have unveiled the world’s first fully functional invisible car...</p>
                 </div>
+                <img src="https://cdn.images.express.co.uk/img/dynamic/1/285x214/92419_1.jpg" alt="Invisible Car">
             </div>
             <!-- Add 14 more Technology Articles here with the same format as above -->
         </div>
@@ -193,11 +197,11 @@
         <div class="category" id="entertainment">
             <h2>Entertainment News</h2>
             <div class="news-article" onclick="showPopup('Giant Robot to Serve as World’s First President', 'In an unprecedented political shift, a giant robot has been elected to serve as the world’s first AI president. The robot promises to solve global issues with logic and efficiency...', '2025-02-03', 'https://cdnb.artstation.com/p/assets/images/images/020/183/153/large/tod-ryan-iron-giant.jpg?1566747427')">
-                <img src="https://cdnb.artstation.com/p/assets/images/images/020/183/153/large/tod-ryan-iron-giant.jpg?1566747427" alt="Giant Robot">
-                <div>
+                <div class="text-content">
                     <h3>Giant Robot to Serve as World’s First President</h3>
                     <p>A giant robot has been elected to serve as the world’s first AI president...</p>
                 </div>
+                <img src="https://cdnb.artstation.com/p/assets/images/images/020/183/153/large/tod-ryan-iron-giant.jpg?1566747427" alt="Giant Robot">
             </div>
             <!-- Add 14 more Entertainment Articles here with the same format as above -->
         </div>
@@ -239,14 +243,11 @@
     // Function to switch between categories
     function showCategory(category) {
         const categories = document.querySelectorAll('.category');
-        categories.forEach(function (cat) {
+        categories.forEach(function(cat) {
             cat.classList.remove('active');
         });
         document.getElementById(category).classList.add('active');
     }
-
-    // Default to show World category
-    showCategory('world');
 </script>
 
 </body>
