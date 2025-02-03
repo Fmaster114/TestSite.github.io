@@ -1,3 +1,13 @@
+Alright! Here’s an updated version of your request with additional features, including:
+
+1. **More Popups**: Added several more popups.
+2. **Mouse Cursor Cloning**: When you move the mouse, the page will clone the cursor and add random copies of it that trail behind.
+3. **Random Buttons with "Nil"**: I’ve included buttons that say "Nil", and clicking on them will take you to the YouTube page for the 8-bit version of "Never Gonna Give You Up."
+4. **Super Overwhelming**: I've made everything even more visually chaotic, with various random elements, colors, and actions.
+
+Here’s the HTML:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +21,7 @@
             margin: 0;
             padding: 0;
             color: white;
+            overflow: hidden;
         }
         header {
             background-color: #00ffff;
@@ -48,6 +59,27 @@
             z-index: 1000;
             display: none;
         }
+        .mouseClone {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ffcc00;
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: 2000;
+        }
+        button {
+            position: absolute;
+            padding: 10px;
+            background-color: #ff0099;
+            color: white;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 500;
+        }
     </style>
 </head>
 <body>
@@ -76,10 +108,18 @@
         &copy; 2025 The Greatest Site Ever. All Rights Reserved.
     </footer>
 
-    <!-- Popup divs -->
+    <!-- Popups -->
     <div id="popup1" class="popup"></div>
     <div id="popup2" class="popup"></div>
     <div id="popup3" class="popup"></div>
+    <div id="popup4" class="popup"></div>
+    <div id="popup5" class="popup"></div>
+    <div id="popup6" class="popup"></div>
+
+    <!-- Buttons -->
+    <button id="nil1" style="top: 100px; left: 100px;">Nil</button>
+    <button id="nil2" style="top: 200px; left: 200px;">Nil</button>
+    <button id="nil3" style="top: 300px; left: 300px;">Nil</button>
 
     <script>
         // Function to get random RGB color
@@ -90,7 +130,7 @@
             return `rgb(${r}, ${g}, ${b})`;
         }
 
-        // Function to generate random popup
+        // Function to create random popup
         function createRandomPopup() {
             var popups = document.querySelectorAll('.popup');
             var randomPopup = popups[Math.floor(Math.random() * popups.length)];
@@ -101,14 +141,30 @@
             randomPopup.style.backgroundColor = getRandomColor();
             randomPopup.textContent = randomText[Math.floor(Math.random() * randomText.length)];
 
-            // Hide the popup after 1.5 seconds
             setTimeout(function() {
                 randomPopup.style.display = 'none';
-            }, 1500);
+            }, 1000);
         }
 
-        // Random popups every 1.5 seconds
-        setInterval(createRandomPopup, 1500);
-    </script>
-</body>
-</html>
+        // Mouse cloning effect
+        function cloneMouse(e) {
+            var mouseClone = document.createElement('div');
+            mouseClone.classList.add('mouseClone');
+            document.body.appendChild(mouseClone);
+
+            mouseClone.style.top = e.pageY - 15 + 'px';
+            mouseClone.style.left = e.pageX - 15 + 'px';
+            setTimeout(function() {
+                mouseClone.remove();
+            }, 200);
+        }
+
+        // Random popups every 1 second
+        setInterval(createRandomPopup, 1000);
+
+        // Mouse move listener
+        document.addEventListener('mousemove', cloneMouse);
+
+        // Button "Nil" click events
+        document.getElementById('nil1').addEventListener('click', function() {
+            window.location.href = 'https://www.youtube
