@@ -208,24 +208,3 @@
             emoji.classList.add('emoji');
             emoji.style.top = yPos + 'px';
             emoji.style.left = xPos + 'px';
-            document.body.appendChild(emoji);
-        }, 2000);
-
-        // Tetris Minigame Logic
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = 200;
-        canvas.height = 400;
-
-        // Simple Tetris Game (Just a placeholder for now)
-        function drawTetris() {
-            ctx.fillStyle = 'black';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = 'red';
-            ctx.fillRect(50, 50, 50, 50);
-        }
-
-        drawTetris(); // Drawing the Tetris block
-    </script>
-</body>
-</html>
