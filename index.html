@@ -3,252 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake News Daily</title>
+    <title>Site Taken Down</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
             text-align: center;
-        }
-        header h1 {
-            margin: 0;
-        }
-        nav {
-            background-color: #444;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-        nav a:hover {
-            text-decoration: underline;
         }
         .container {
-            display: flex;
-            justify-content: center;
-            margin: 20px;
-            flex-wrap: wrap;
-        }
-        .main-content {
-            width: 100%;
-            max-width: 1200px;
-            background-color: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
         }
-        .category {
-            display: none;
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
         }
-        .category.active {
-            display: block;
-        }
-        .news-article {
-            margin-bottom: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            justify-content: space-between; /* Align text to left, image to right */
-        }
-        .news-article img {
-            width: 80px;  /* Smaller image size */
-            height: 80px;
-            border-radius: 8px;
-        }
-        .news-article .text-content {
-            flex: 1; /* Makes the text section take remaining space */
-            margin-right: 20px; /* Adds space between text and image */
-        }
-        .news-article h3 {
-            font-size: 1.4em;
-            margin: 0;
-        }
-        .news-article p {
-            font-size: 1em;
-            color: #555;
-            margin-top: 5px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-        }
-
-        /* Popup (Fullscreen) Styles */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            padding: 20px;
-            z-index: 999;
-        }
-        .popup-content {
-            background-color: #222;
-            padding: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 800px;
-            text-align: left;
-        }
-        .popup-content h2 {
-            font-size: 2em;
-        }
-        .popup-content p {
-            font-size: 1.2em;
-            color: #ccc;
-        }
-        .popup-content .date {
-            font-size: 1em;
-            color: #aaa;
-        }
-        .popup-content .image-container {
-            margin-top: 20px;
-        }
-        .popup-close {
-            background-color: #444;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        .popup-close:hover {
-            background-color: #333;
-        }
-
-        /* Media Queries for Responsiveness */
-        @media (max-width: 768px) {
-            .news-article {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .news-article img {
-                margin-bottom: 15px;
-                width: 80px;
-                height: 80px;
-            }
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Fake News Daily</h1>
-    <p>Your source for all the most unbelievable headlines!</p>
-</header>
-
-<nav>
-    <a href="#" onclick="showCategory('world')">World</a>
-    <a href="#" onclick="showCategory('technology')">Technology</a>
-    <a href="#" onclick="showCategory('entertainment')">Entertainment</a>
-</nav>
-
-<div class="container">
-    <div class="main-content">
-        <!-- World Category -->
-        <div class="category" id="world">
-            <h2>World News</h2>
-            <div class="news-article" onclick="showPopup('Aliens Invade Downtown New York City', 'In an unprecedented event, alien spacecraft have landed in the heart of New York City. Authorities are baffled, but experts suggest this may be the beginning of a new era of intergalactic diplomacy...', '2025-02-03', 'https://static01.nyt.com/images/2020/07/28/us/28xp-UFO/28xp-UFO-videoSixteenByNineJumbo1600.jpg')">
-                <div class="text-content">
-                    <h3>Aliens Invade Downtown New York City</h3>
-                    <p>In an unprecedented event, alien spacecraft have landed in the heart of New York City...</p>
-                </div>
-                <img src="https://static01.nyt.com/images/2020/07/28/us/28xp-UFO/28xp-UFO-videoSixteenByNineJumbo1600.jpg" alt="Aliens Invade Downtown New York City">
-            </div>
-            <!-- Add 14 more World Articles here with the same format as above -->
-        </div>
-
-        <!-- Technology Category -->
-        <div class="category" id="technology">
-            <h2>Technology News</h2>
-            <div class="news-article" onclick="showPopup('World’s First Invisible Car to Hit the Market', 'Scientists at the leading tech company Invisible Motors have unveiled the world’s first fully functional invisible car. The vehicle promises to revolutionize transportation, but not everyone is convinced...', '2025-02-03', 'https://cdn.images.express.co.uk/img/dynamic/1/285x214/92419_1.jpg')">
-                <div class="text-content">
-                    <h3>World’s First Invisible Car to Hit the Market</h3>
-                    <p>Scientists at Invisible Motors have unveiled the world’s first fully functional invisible car...</p>
-                </div>
-                <img src="https://cdn.images.express.co.uk/img/dynamic/1/285x214/92419_1.jpg" alt="Invisible Car">
-            </div>
-            <!-- Add 14 more Technology Articles here with the same format as above -->
-        </div>
-
-        <!-- Entertainment Category -->
-        <div class="category" id="entertainment">
-            <h2>Entertainment News</h2>
-            <div class="news-article" onclick="showPopup('Giant Robot to Serve as World’s First President', 'In an unprecedented political shift, a giant robot has been elected to serve as the world’s first AI president. The robot promises to solve global issues with logic and efficiency...', '2025-02-03', 'https://cdnb.artstation.com/p/assets/images/images/020/183/153/large/tod-ryan-iron-giant.jpg?1566747427')">
-                <div class="text-content">
-                    <h3>Giant Robot to Serve as World’s First President</h3>
-                    <p>A giant robot has been elected to serve as the world’s first AI president...</p>
-                </div>
-                <img src="https://cdnb.artstation.com/p/assets/images/images/020/183/153/large/tod-ryan-iron-giant.jpg?1566747427" alt="Giant Robot">
-            </div>
-            <!-- Add 14 more Entertainment Articles here with the same format as above -->
-        </div>
+    <div class="container">
+        <h1>This Site Has Been Taken Down</h1>
+        <p>We regret to inform you that this website is no longer available. Please contact support for more information.</p>
     </div>
-</div>
-
-<footer>
-    <p>&copy; 2025 Fake News Daily - All Rights Reserved</p>
-</footer>
-
-<!-- Fullscreen Popup -->
-<div class="popup" id="popup">
-    <div class="popup-content">
-        <h2 id="popup-title"></h2>
-        <p id="popup-content"></p>
-        <p class="date" id="popup-date"></p>
-        <div class="image-container">
-            <img src="" id="popup-image" alt="Article Image" style="width: 100%; max-width: 600px; border-radius: 8px; margin-top: 20px;">
-        </div>
-        <button class="popup-close" onclick="closePopup()">Close</button>
-    </div>
-</div>
-
-<script>
-    // Function to display the popup
-    function showPopup(title, content, date, imageUrl) {
-        document.getElementById('popup-title').innerText = title;
-        document.getElementById('popup-content').innerText = content;
-        document.getElementById('popup-date').innerText = "Published on: " + date;
-        document.getElementById('popup-image').src = imageUrl;
-        document.getElementById('popup').style.display = "flex"; // Show the popup
-    }
-
-    // Function to close the popup
-    function closePopup() {
-        document.getElementById('popup').style.display = "none"; // Hide the popup
-    }
-
-    // Function to switch between categories
-    function showCategory(category) {
-        const categories = document.querySelectorAll('.category');
-        categories.forEach(function(cat) {
-            cat.classList.remove('active');
-        });
-        document.getElementById(category).classList.add('active');
-    }
-</script>
-
 </body>
 </html>
