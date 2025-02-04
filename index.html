@@ -12,10 +12,11 @@
             flex-direction: column;
             align-items: center;
             background-color: #f0f0f0;
+            transition: background-color 1s ease-in-out;
         }
         .roll {
-            width: 200px;
-            height: 300px;
+            width: 180px;
+            height: 280px;
             background: white;
             border: 2px solid #ddd;
             border-radius: 20px;
@@ -23,13 +24,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
+            font-size: 30px;
             font-family: Arial, sans-serif;
             box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.5s;
         }
         #scoreboard {
-            font-size: 20px;
+            font-size: 22px;
             margin: 20px;
+            font-weight: bold;
         }
         #container {
             width: 100%;
@@ -52,7 +55,7 @@
         highscoreElement.innerText = highscore;
         
         function addToiletPaper() {
-            for (let i = 0; i < 10; i++) { // Increase initial rolls for better visibility
+            for (let i = 0; i < 10; i++) {
                 let roll = document.createElement('div');
                 roll.className = 'roll';
                 roll.innerText = '🧻';
@@ -64,6 +67,14 @@
                     highscoreElement.innerText = highscore;
                 }
             }
+            checkLevelUp();
+        }
+        
+        function checkLevelUp() {
+            if (score >= 50) {
+                document.body.style.backgroundColor = "#222";
+                document.body.style.color = "white";
+            }
         }
         
         window.addEventListener('scroll', () => {
@@ -72,7 +83,7 @@
             }
         });
         
-        addToiletPaper(); // Initial rolls to ensure scrolling
+        addToiletPaper(); 
     </script>
 </body>
 </html>
