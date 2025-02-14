@@ -55,10 +55,16 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
         a {
             color: #1a0dab;
             text-decoration: none;
             font-size: 18px;
+            cursor: pointer;
         }
         a:hover {
             text-decoration: underline;
@@ -73,6 +79,7 @@
         <button onclick="feelingLucky()">I'm Feeling Lucky</button>
     </div>
     <div id="results" class="results"></div>
+    <iframe id="resultFrame" style="display:none;"></iframe>
     <script>
         async function searchWoogle() {
             var query = document.getElementById("searchQuery").value;
@@ -85,10 +92,14 @@
                 resultsDiv.innerHTML = "";
                 
                 if (data.RelatedTopics.length > 0) {
-                    data.RelatedTopics.slice(0, 10).forEach(item => { // Show more results
+                    data.RelatedTopics.slice(0, 10).forEach(item => {
                         if (item.Text && item.FirstURL) {
                             let resultItem = document.createElement("p");
-                            resultItem.innerHTML = `<a href="${item.FirstURL}" target="_blank">${item.Text}</a>`;
+                            let link = document.createElement("a");
+                            link.href = "#";
+                            link.innerText = item.Text;
+                            link.onclick = function() { openInFrame(item.FirstURL); return false; };
+                            resultItem.appendChild(link);
                             resultsDiv.appendChild(resultItem);
                         }
                     });
@@ -100,17 +111,20 @@
             }
         }
         
+        function openInFrame(url) {
+            var frame = document.getElementById("resultFrame");
+            frame.style.display = "block";
+            frame.src = url;
+        }
+        
         async function feelingLucky() {
             var query = document.getElementById("searchQuery").value;
-            
             if (!query) return;
-            
             try {
                 let response = await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(query)}&format=json`);
                 let data = await response.json();
-                
                 if (data.RelatedTopics.length > 0) {
-                    window.location.href = data.RelatedTopics[0].FirstURL;
+                    openInFrame(data.RelatedTopics[0].FirstURL);
                 } else {
                     alert("No results found");
                 }
