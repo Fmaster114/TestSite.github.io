@@ -1,2 +1,59 @@
-
-<iframe width="110" height="200" src="https://www.myinstants.com/instant/harald-gloockler-man-87400/embed/" frameborder="0" scrolling="no"></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woogle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px auto;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            font-size: 50px;
+            color: #4285F4;
+        }
+        .search-box {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 25px;
+            background-color: #4285F4;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Woogle</h1>
+    <div class="search-box">
+        <input type="text" id="searchQuery" placeholder="Search Woogle...">
+        <button onclick="searchWoogle()">Search</button>
+    </div>
+    <script>
+        function searchWoogle() {
+            var query = document.getElementById("searchQuery").value;
+            if (query) {
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+            }
+        }
+    </script>
+</body>
+</html>
