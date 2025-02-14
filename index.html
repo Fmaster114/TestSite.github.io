@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Woogle</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,7 +85,7 @@
                 resultsDiv.innerHTML = "";
                 
                 if (data.RelatedTopics.length > 0) {
-                    data.RelatedTopics.forEach(item => {
+                    data.RelatedTopics.slice(0, 10).forEach(item => { // Show more results
                         if (item.Text && item.FirstURL) {
                             let resultItem = document.createElement("p");
                             resultItem.innerHTML = `<a href="${item.FirstURL}" target="_blank">${item.Text}</a>`;
