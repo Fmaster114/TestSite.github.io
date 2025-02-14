@@ -39,6 +39,17 @@
         button:hover {
             background-color: #357ae8;
         }
+        .results {
+            margin-top: 20px;
+            text-align: left;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -46,12 +57,43 @@
     <div class="search-box">
         <input type="text" id="searchQuery" placeholder="Search Woogle...">
         <button onclick="searchWoogle()">Search</button>
+        <button onclick="feelingLucky()">I'm Feeling Lucky</button>
     </div>
+    <div id="results" class="results"></div>
     <script>
+        const sampleData = [
+            "Woogle is a custom search engine.",
+            "Search the web with Woogle!",
+            "Find what you're looking for with Woogle search.",
+            "Woogle: The best search experience."
+        ];
+        
         function searchWoogle() {
-            var query = document.getElementById("searchQuery").value;
-            if (query) {
-                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+            var query = document.getElementById("searchQuery").value.toLowerCase();
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+            
+            let results = sampleData.filter(item => item.toLowerCase().includes(query));
+            
+            if (results.length > 0) {
+                results.forEach(result => {
+                    let p = document.createElement("p");
+                    p.textContent = result;
+                    resultsDiv.appendChild(p);
+                });
+            } else {
+                resultsDiv.innerHTML = "<p>No results found</p>";
+            }
+        }
+        
+        function feelingLucky() {
+            var resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "";
+            
+            if (sampleData.length > 0) {
+                let p = document.createElement("p");
+                p.textContent = sampleData[Math.floor(Math.random() * sampleData.length)];
+                resultsDiv.appendChild(p);
             }
         }
     </script>
