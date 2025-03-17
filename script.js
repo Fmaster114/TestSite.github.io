@@ -4,23 +4,30 @@ let raceInterval;
 let raceTimeRemaining;
 const leaderboard = document.getElementById('leaderboard');
 const timerDisplay = document.getElementById('timer');
+let drivers = [
+    { name: "Max Verstappen", position: 1 },
+    { name: "Lewis Hamilton", position: 2 },
+    { name: "Charles Leclerc", position: 3 },
+    { name: "George Russell", position: 4 },
+    { name: "Carlos Sainz", position: 5 },
+    { name: "Sergio Perez", position: 6 },
+    { name: "Lando Norris", position: 7 },
+    { name: "Fernando Alonso", position: 8 },
+    { name: "Oscar Piastri", position: 9 },
+    { name: "Lance Stroll", position: 10 }
+];
 
 function startRace() {
-    const drivers = [
-        "Max Verstappen", "Lewis Hamilton", "Charles Leclerc",
-        "George Russell", "Carlos Sainz", "Sergio Perez",
-        "Lando Norris", "Fernando Alonso", "Oscar Piastri",
-        "Lance Stroll"
-    ];
-
     raceTimeRemaining = 60;
     updateButton();
     updateTimerDisplay();
+    updateResults();
 
     raceInterval = setInterval(() => {
         raceTimeRemaining--;
-        updateResults(drivers);
         updateTimerDisplay();
+        randomizePositions();
+        updateResults();
 
         if (raceTimeRemaining <= 0) {
             clearInterval(raceInterval);
@@ -30,13 +37,30 @@ function startRace() {
     }, 1000);
 }
 
-function updateResults(drivers) {
-    leaderboard.innerHTML = "";
-    const shuffledDrivers = [...drivers].sort(() => Math.random() - 0.5);
+function randomizePositions() {
+    drivers.forEach(driver => {
+        if (Math.random() < 0.3) { // 30% chance to move
+            const move = Math.floor(Math.random() * 3) - 1; // Move -1, 0, or 1 positions
+            const newPosition = driver.position + move;
 
-    shuffledDrivers.forEach((driver, index) => {
+            if (newPosition > 0 && newPosition <= drivers.length) {
+                const otherDriver = drivers.find(d => d.position === newPosition);
+                if (otherDriver) {
+                    otherDriver.position = driver.position;
+                    driver.position = newPosition;
+                }
+            }
+        }
+    });
+
+    drivers.sort((a, b) => a.position - b.position); // Sort by position
+}
+
+function updateResults() {
+    leaderboard.innerHTML = "";
+    drivers.forEach(driver => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${index + 1}. ${driver}`;
+        listItem.textContent = `${driver.position}. ${driver.name}`;
         leaderboard.appendChild(listItem);
     });
 }
