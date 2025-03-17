@@ -65,6 +65,11 @@ body {
     transition: border-bottom 0.3s ease, transform 0.3s ease;
 }
 
+.race-results li.moving {
+    transform: translateX(20px);
+    transition: transform 0.3s ease;
+}
+
 .race-results li:last-child {
     border-bottom: none;
 }
@@ -78,13 +83,9 @@ body {
     margin-bottom: 10px;
 }
 
-.race-results li {
-    position: relative;
-}
-
-/* ... (previous CSS) ... */
-
-.race-results li.moving {
-    transform: translateX(20px); /* Slide effect */
-    transition: transform 0.3s ease;
+.timer.yellow-flag {
+    background-color: yellow;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
 }
