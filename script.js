@@ -24,6 +24,7 @@ function startRace() {
     updateButton();
     updateTimerDisplay();
     updateResults();
+    createCrashButtons();
 
     raceInterval = setInterval(() => {
         raceTimeRemaining--;
@@ -64,7 +65,13 @@ function randomizePositions() {
 function checkCrash() {
     if (Math.random() < 1 / 32 && drivers.length > 1) {
         const crashedDriverIndex = Math.floor(Math.random() * drivers.length);
-        const crashedDriver = drivers.splice(crashedDriverIndex, 1)[0];
+        crashDriver(crashedDriverIndex);
+    }
+}
+
+function crashDriver(index) {
+    if (index >= 0 && index < drivers.length) {
+        const crashedDriver = drivers.splice(index, 1)[0];
         console.log(`${crashedDriver.name} crashed!`);
         yellowFlag = true;
         setTimeout(() => {
@@ -117,4 +124,15 @@ function toggleMode() {
     } else {
         modeButton.textContent = "Dark Mode";
     }
+}
+
+function createCrashButtons() {
+    const crashButtonsDiv = document.getElementById('crashButtons');
+    crashButtonsDiv.innerHTML = "";
+    drivers.forEach((driver, index) => {
+        const button = document.createElement('button');
+        button.textContent = `Crash ${driver.name}`;
+        button.addEventListener('click', () => crashDriver(index));
+        crashButtonsDiv.appendChild(button);
+    });
 }
