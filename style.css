@@ -62,7 +62,7 @@ body {
 .race-results li {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
-    transition: border-bottom 0.3s ease;
+    transition: border-bottom 0.3s ease, transform 0.3s ease;
 }
 
 .race-results li:last-child {
@@ -76,4 +76,13 @@ body {
 .timer {
     font-size: 20px;
     margin-bottom: 10px;
+}
+
+.race-results li {
+    position: relative;
+}
+
+.race-results li.moving {
+    transform: translateY(10px); /* Adjust as needed */
+    transition: transform 0.3s ease;
 }
