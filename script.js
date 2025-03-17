@@ -63,6 +63,17 @@ function updateResults() {
         listItem.textContent = `${driver.position}. ${driver.name}`;
         leaderboard.appendChild(listItem);
     });
+
+    // Add 'moving' class to list items that changed position
+    const listItems = leaderboard.querySelectorAll('li');
+    drivers.forEach((driver, index) => {
+        if (listItems[index] && listItems[index].textContent !== `${driver.position}. ${driver.name}`) {
+            listItems[index].classList.add('moving');
+            setTimeout(() => {
+                listItems[index].classList.remove('moving');
+            }, 300); // Remove class after animation
+        }
+    });
 }
 
 function updateButton() {
