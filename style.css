@@ -89,3 +89,23 @@ body {
     padding: 5px;
     border-radius: 5px;
 }
+
+#modeToggle {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.control-panel {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dark-mode .control-panel {
+    background-color: #333;
+    color: #eee;
+}
