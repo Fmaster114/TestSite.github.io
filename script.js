@@ -1,4 +1,5 @@
 document.getElementById('startButton').addEventListener('click', startRace);
+document.getElementById('modeToggle').addEventListener('click', toggleMode);
 
 let raceInterval;
 let raceTimeRemaining;
@@ -68,7 +69,7 @@ function checkCrash() {
         yellowFlag = true;
         setTimeout(() => {
             yellowFlag = false;
-        }, 5000); // Yellow flag for 5 seconds
+        }, 5000);
     }
 }
 
@@ -92,6 +93,9 @@ function updateResults() {
 
     if (yellowFlag) {
         timerDisplay.textContent += " (Yellow Flag)";
+        timerDisplay.classList.add('yellow-flag');
+    } else {
+        timerDisplay.classList.remove('yellow-flag');
     }
 }
 
@@ -103,4 +107,14 @@ function updateButton() {
 
 function updateTimerDisplay() {
     timerDisplay.textContent = `${raceTimeRemaining}s`;
+}
+
+function toggleMode() {
+    document.body.classList.toggle('dark-mode');
+    const modeButton = document.getElementById("modeToggle");
+    if (document.body.classList.contains('dark-mode')) {
+        modeButton.textContent = "Light Mode";
+    } else {
+        modeButton.textContent = "Dark Mode";
+    }
 }
