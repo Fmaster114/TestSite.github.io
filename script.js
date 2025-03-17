@@ -3,6 +3,7 @@ document.getElementById('startButton').addEventListener('click', startRace);
 let raceInterval;
 let raceTimeRemaining;
 const leaderboard = document.getElementById('leaderboard');
+const timerDisplay = document.getElementById('timer');
 
 function startRace() {
     const drivers = [
@@ -14,10 +15,12 @@ function startRace() {
 
     raceTimeRemaining = 60;
     updateButton();
+    updateTimerDisplay();
 
     raceInterval = setInterval(() => {
         raceTimeRemaining--;
         updateResults(drivers);
+        updateTimerDisplay();
 
         if (raceTimeRemaining <= 0) {
             clearInterval(raceInterval);
@@ -28,7 +31,7 @@ function startRace() {
 }
 
 function updateResults(drivers) {
-    leaderboard.innerHTML = ""; // Clear the leaderboard
+    leaderboard.innerHTML = "";
     const shuffledDrivers = [...drivers].sort(() => Math.random() - 0.5);
 
     shuffledDrivers.forEach((driver, index) => {
@@ -41,5 +44,9 @@ function updateResults(drivers) {
 function updateButton() {
     const startButton = document.getElementById('startButton');
     startButton.disabled = true;
-    startButton.textContent = `Race in progress (${raceTimeRemaining}s)`;
+    startButton.textContent = `Race in progress`;
+}
+
+function updateTimerDisplay() {
+    timerDisplay.textContent = `${raceTimeRemaining}s`;
 }
