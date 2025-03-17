@@ -1,3 +1,18 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .race-results {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .race-results li {
+    border-bottom: 1px solid #333;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -5,7 +20,6 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
 }
 
 .button {
@@ -17,6 +31,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .button:disabled {
@@ -30,6 +45,7 @@ body {
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 300px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .race-results h2 {
@@ -40,11 +56,13 @@ body {
 .race-results ul {
     list-style-type: none;
     padding: 0;
+    transition: all 0.3s ease;
 }
 
 .race-results li {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
+    transition: border-bottom 0.3s ease;
 }
 
 .race-results li:last-child {
@@ -53,4 +71,9 @@ body {
 
 .container{
     text-align: center;
+}
+
+.timer {
+    font-size: 20px;
+    margin-bottom: 10px;
 }
