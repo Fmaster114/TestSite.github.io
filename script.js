@@ -16,6 +16,7 @@ let drivers = [
     { name: "Oscar Piastri", position: 9 },
     { name: "Lance Stroll", position: 10 }
 ];
+let yellowFlag = false;
 
 function startRace() {
     raceTimeRemaining = 60;
@@ -26,10 +27,13 @@ function startRace() {
     raceInterval = setInterval(() => {
         raceTimeRemaining--;
         updateTimerDisplay();
-        randomizePositions();
+        checkCrash();
+        if (!yellowFlag) {
+            randomizePositions();
+        }
         updateResults();
 
-        if (raceTimeRemaining <= 0) {
+        if (raceTimeRemaining <= 0 || drivers.length <= 1) {
             clearInterval(raceInterval);
             document.getElementById("startButton").disabled = false;
             document.getElementById("startButton").textContent = "Restart Race";
@@ -39,8 +43,8 @@ function startRace() {
 
 function randomizePositions() {
     drivers.forEach(driver => {
-        if (Math.random() < 0.3) { // 30% chance to move
-            const move = Math.floor(Math.random() * 3) - 1; // Move -1, 0, or 1 positions
+        if (Math.random() < 0.3) {
+            const move = Math.floor(Math.random() * 3) - 1;
             const newPosition = driver.position + move;
 
             if (newPosition > 0 && newPosition <= drivers.length) {
@@ -53,7 +57,19 @@ function randomizePositions() {
         }
     });
 
-    drivers.sort((a, b) => a.position - b.position); // Sort by position
+    drivers.sort((a, b) => a.position - b.position);
+}
+
+function checkCrash() {
+    if (Math.random() < 1 / 32 && drivers.length > 1) {
+        const crashedDriverIndex = Math.floor(Math.random() * drivers.length);
+        const crashedDriver = drivers.splice(crashedDriverIndex, 1)[0];
+        console.log(`${crashedDriver.name} crashed!`);
+        yellowFlag = true;
+        setTimeout(() => {
+            yellowFlag = false;
+        }, 5000); // Yellow flag for 5 seconds
+    }
 }
 
 function updateResults() {
@@ -64,16 +80,19 @@ function updateResults() {
         leaderboard.appendChild(listItem);
     });
 
-    // Add 'moving' class to list items that changed position
     const listItems = leaderboard.querySelectorAll('li');
     drivers.forEach((driver, index) => {
         if (listItems[index] && listItems[index].textContent !== `${driver.position}. ${driver.name}`) {
             listItems[index].classList.add('moving');
             setTimeout(() => {
                 listItems[index].classList.remove('moving');
-            }, 300); // Remove class after animation
+            }, 300);
         }
     });
+
+    if (yellowFlag) {
+        timerDisplay.textContent += " (Yellow Flag)";
+    }
 }
 
 function updateButton() {
