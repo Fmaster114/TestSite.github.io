@@ -1,1 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
 
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.race-results {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.race-results h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.race-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.race-results li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.race-results li:last-child {
+    border-bottom: none;
+}
+
+.container{
+    text-align: center;
+}
