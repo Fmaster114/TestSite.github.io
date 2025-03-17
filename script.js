@@ -77,6 +77,11 @@ function crashDriver(index) {
         setTimeout(() => {
             yellowFlag = false;
         }, 5000);
+
+        const listItems = leaderboard.querySelectorAll('li');
+        if (listItems[index]) {
+            listItems[index].innerHTML += " 💥";
+        }
     }
 }
 
@@ -84,55 +89,11 @@ function updateResults() {
     leaderboard.innerHTML = "";
     drivers.forEach(driver => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${driver.position}. ${driver.name}`;
+        listItem.innerHTML = `<span><span class="math-inline">\{driver\.position\}\.</span\><span\></span>{driver.name}</span>`;
         leaderboard.appendChild(listItem);
     });
 
     const listItems = leaderboard.querySelectorAll('li');
     drivers.forEach((driver, index) => {
-        if (listItems[index] && listItems[index].textContent !== `${driver.position}. ${driver.name}`) {
-            listItems[index].classList.add('moving');
-            setTimeout(() => {
-                listItems[index].classList.remove('moving');
-            }, 300);
-        }
-    });
-
-    if (yellowFlag) {
-        timerDisplay.textContent += " (Yellow Flag)";
-        timerDisplay.classList.add('yellow-flag');
-    } else {
-        timerDisplay.classList.remove('yellow-flag');
-    }
-}
-
-function updateButton() {
-    const startButton = document.getElementById('startButton');
-    startButton.disabled = true;
-    startButton.textContent = `Race in progress`;
-}
-
-function updateTimerDisplay() {
-    timerDisplay.textContent = `${raceTimeRemaining}s`;
-}
-
-function toggleMode() {
-    document.body.classList.toggle('dark-mode');
-    const modeButton = document.getElementById("modeToggle");
-    if (document.body.classList.contains('dark-mode')) {
-        modeButton.textContent = "Light Mode";
-    } else {
-        modeButton.textContent = "Dark Mode";
-    }
-}
-
-function createCrashButtons() {
-    const crashButtonsDiv = document.getElementById('crashButtons');
-    crashButtonsDiv.innerHTML = "";
-    drivers.forEach((driver, index) => {
-        const button = document.createElement('button');
-        button.textContent = `Crash ${driver.name}`;
-        button.addEventListener('click', () => crashDriver(index));
-        crashButtonsDiv.appendChild(button);
-    });
-}
+        if (listItems[index] && listItems[index].textContent.trim() !== `<span class="math-inline">\{driver\.position\}\.</span>{driver.name}`) {
+            list
