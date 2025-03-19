@@ -1,24 +1,27 @@
-const startRaceButton = document.getElementById('start-race');
 const crashCarButtons = document.querySelectorAll('[id^="crash-car-"]');
-const yellowFlagButton = document.getElementById('yellow-flag');
-const redFlagButton = document.getElementById('red-flag');
-const flagText = document.getElementById('flag-text');
 const leaderboardList = document.getElementById('leaderboard-list');
 const lightDarkModeButton = document.getElementById('light-dark-mode');
-const timerDisplay = document.getElementById('timer');
 
-let isDarkMode = false;
-let flagStatus = '';
-let raceStarted = false;
-let timerInterval;
-let timeLeft = 30; // Initial timer value
+let isDarkMode = true; // Default to dark mode
+let raceInterval;
 
-startRaceButton.addEventListener('click', () => {
-    if (!raceStarted) {
-        raceStarted = true;
-        startRace();
+function startRace() {
+    raceInterval = setInterval(() => {
+        moveCars();
+    }, 2000); // Adjust speed as needed
+}
+
+function moveCars() {
+    const listItems = Array.from(leaderboardList.children);
+    for (let i = 0; i < listItems.length; i++) {
+        const randomMove = Math.random();
+        if (randomMove < 0.2) { // 20% chance to move
+            if (i > 0) {
+                leaderboardList.insertBefore(listItems[i], listItems[i - 1]);
+            }
+        }
     }
-});
+}
 
 crashCarButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -27,13 +30,15 @@ crashCarButtons.forEach(button => {
     });
 });
 
-yellowFlagButton.addEventListener('click', () => {
-    setFlag('Yellow Flag');
-});
-
-redFlagButton.addEventListener('click', () => {
-    setFlag('Red Flag');
-});
+function crashCar(carNumber) {
+    const carItem = document.querySelector(`[data-car="${carNumber}"]`);
+    if (carItem) {
+        carItem.classList.add('crashed');
+        setTimeout(() => {
+            carItem.classList.remove('crashed');
+        }, 10000); // 10 seconds
+    }
+}
 
 lightDarkModeButton.addEventListener('click', () => {
     isDarkMode = !isDarkMode;
@@ -42,7 +47,4 @@ lightDarkModeButton.addEventListener('click', () => {
     document.querySelectorAll('.leaderboard li').forEach(li => li.classList.toggle('dark-mode', isDarkMode));
 });
 
-function startRace() {
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.textContent = `Time: ${timeLeft}s`;
+startRace();
