@@ -59,41 +59,4 @@ function randomizePositions() {
         }
     });
 
-    drivers.sort((a, b) => a.position - b.position);
-}
-
-function checkCrash() {
-    if (Math.random() < 1 / 32 && drivers.length > 1) {
-        const crashedDriverIndex = Math.floor(Math.random() * drivers.length);
-        crashDriver(crashedDriverIndex);
-    }
-}
-
-function crashDriver(index) {
-    if (index >= 0 && index < drivers.length) {
-        const crashedDriver = drivers.splice(index, 1)[0];
-        console.log(`${crashedDriver.name} crashed!`);
-        yellowFlag = true;
-        setTimeout(() => {
-            yellowFlag = false;
-        }, 5000);
-
-        const listItems = leaderboard.querySelectorAll('li');
-        if (listItems[index]) {
-            listItems[index].innerHTML += " 💥";
-        }
-    }
-}
-
-function updateResults() {
-    leaderboard.innerHTML = "";
-    drivers.forEach(driver => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `<span><span class="math-inline">\{driver\.position\}\.</span\><span\></span>{driver.name}</span>`;
-        leaderboard.appendChild(listItem);
-    });
-
-    const listItems = leaderboard.querySelectorAll('li');
-    drivers.forEach((driver, index) => {
-        if (listItems[index] && listItems[index].textContent.trim() !== `<span class="math-inline">\{driver\.position\}\.</span>{driver.name}`) {
-            list
+    drivers.sort((a, b) =>
