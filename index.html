@@ -6,11 +6,30 @@
     <title>F1 Race Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
     <div class="container">
+        <div class="leaderboard">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboard-list">
+                <li data-car="1">44 - Lewis Hamilton (MER) "Ham"</li>
+                <li data-car="2">1 - Max Verstappen (RBR) "Mad Max"</li>
+                <li data-car="3">16 - Charles Leclerc (FER) "The Prince"</li>
+                <li data-car="4">63 - George Russell (MER) "Mr. Saturday"</li>
+                <li data-car="5">55 - Carlos Sainz (FER) "Chili"</li>
+                <li data-car="6">4 - Lando Norris (MCL) "Lando"</li>
+                <li data-car="7">81 - Oscar Piastri (MCL) "OP"</li>
+                <li data-car="8">14 - Fernando Alonso (AST) "Nando"</li>
+                <li data-car="9">18 - Lance Stroll (AST) "Stroll"</li>
+                <li data-car="10">10 - Pierre Gasly (ALP) "Gasly"</li>
+                <li data-car="11">31 - Esteban Ocon (ALP) "Ocon"</li>
+                <li data-car="12">23 - Alexander Albon (WIL) "Alex"</li>
+                <li data-car="13">22 - Yuki Tsunoda (VCARB) "Tsunoda"</li>
+                <li data-car="14">3 - Daniel Ricciardo (VCARB) "Ricciardo"</li>
+                <li data-car="15">20 - Kevin Magnussen (HAA) "K-Mag"</li>
+            </ul>
+        </div>
         <div class="control-panel">
             <h2>Control Panel</h2>
-            <button id="start-race">Start Race</button>
             <button id="crash-car-1">Crash Car 1</button>
             <button id="crash-car-2">Crash Car 2</button>
             <button id="crash-car-3">Crash Car 3</button>
@@ -26,35 +45,7 @@
             <button id="crash-car-13">Crash Car 13</button>
             <button id="crash-car-14">Crash Car 14</button>
             <button id="crash-car-15">Crash Car 15</button>
-            <button id="yellow-flag">Yellow Flag</button>
-            <button id="red-flag">Red Flag</button>
             <button id="light-dark-mode">Light/Dark Mode</button>
-            <div id="timer">Time: 30s</div>
-        </div>
-        <div class="race-display">
-            <div class="flag-display">
-                <span id="flag-text"></span>
-            </div>
-            <div class="leaderboard">
-                <h2>Leaderboard</h2>
-                <ul id="leaderboard-list">
-                    <li data-car="1">44 - Lewis Hamilton (MER) "Ham"</li>
-                    <li data-car="2">1 - Max Verstappen (RBR) "Mad Max"</li>
-                    <li data-car="3">16 - Charles Leclerc (FER) "The Prince"</li>
-                    <li data-car="4">63 - George Russell (MER) "Mr. Saturday"</li>
-                    <li data-car="5">55 - Carlos Sainz (FER) "Chili"</li>
-                    <li data-car="6">4 - Lando Norris (MCL) "Lando"</li>
-                    <li data-car="7">81 - Oscar Piastri (MCL) "OP"</li>
-                    <li data-car="8">14 - Fernando Alonso (AST) "Nando"</li>
-                    <li data-car="9">18 - Lance Stroll (AST) "Stroll"</li>
-                    <li data-car="10">10 - Pierre Gasly (ALP) "Gasly"</li>
-                    <li data-car="11">31 - Esteban Ocon (ALP) "Ocon"</li>
-                    <li data-car="12">23 - Alexander Albon (WIL) "Alex"</li>
-                    <li data-car="13">22 - Yuki Tsunoda (VCARB) "Tsunoda"</li>
-                    <li data-car="14">3 - Daniel Ricciardo (VCARB) "Ricciardo"</li>
-                    <li data-car="15">20 - Kevin Magnussen (HAA) "K-Mag"</li>
-                </ul>
-            </div>
         </div>
     </div>
     <script src="script.js"></script>
