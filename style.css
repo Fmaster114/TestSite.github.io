@@ -10,11 +10,35 @@ body {
     height: 100vh;
 }
 
+.leaderboard {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.leaderboard h2 {
+    margin-bottom: 20px;
+}
+
+.leaderboard ul {
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.leaderboard li:last-child {
+    border-bottom: none;
+}
+
 .control-panel {
     width: 200px;
     padding: 20px;
-    background-color: #f0f0f0;
-    border-right: 1px solid #ddd;
+    background-color: #444;
+    border-left: 1px solid #555;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,37 +64,6 @@ body {
     background-color: #0056b3;
 }
 
-.race-display {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.flag-display {
-    text-align: center;
-    padding: 10px;
-    font-size: 1.2em;
-}
-
-.leaderboard {
-    padding: 20px;
-}
-
-.leaderboard ul {
-    list-style: none;
-    padding: 0;
-}
-
-.leaderboard li {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.3s;
-}
-
-.leaderboard li:last-child {
-    border-bottom: none;
-}
-
 /* Dark Mode Styles */
 body.dark-mode {
     background-color: #333;
@@ -79,14 +72,14 @@ body.dark-mode {
 
 .control-panel.dark-mode {
     background-color: #444;
-    border-right: 1px solid #555;
+    border-left: 1px solid #555;
 }
 
 .leaderboard li.dark-mode {
     border-bottom: 1px solid #555;
 }
 
-#timer {
-    margin-top: 20px;
-    font-size: 1.2em;
+.leaderboard li.crashed {
+    background-color: yellow;
+    color: black;
 }
