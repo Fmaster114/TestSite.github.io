@@ -3,89 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEHEIMNIS GELÜFTET: Darum war dieser ICE tagelang "perfekt pünktlich" – die Wahrheit ist peinlich für die Bahn</title>
+    <title>Zugführer vergisst Zeitumstellung: Geniale Pünktlichkeit</title>
     <style>
         body {
-            /* Hintergrundfarbe und traditionelle Schrift für Text */
             font-family: 'Times New Roman', Times, serif; 
             line-height: 1.6;
             color: #1a1a1a;
-            background-color: #f9f9f9;
+            background-color: #f0f2f5; /* Leichter News-Seiten-Hintergrund */
             margin: 0;
             padding: 0;
         }
         .container {
-            /* Zentraler Inhaltsbereich, wie bei einer News-Seite */
-            max-width: 850px;
+            max-width: 1000px;
             margin: 30px auto;
             background-color: #fff;
             padding: 40px 50px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Leichter Schatten */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .article-content {
+            flex: 3; /* Hauptinhalt nimmt mehr Platz ein */
+            padding-right: 30px;
+            min-width: 600px;
+        }
+        .sidebar {
+            flex: 1; /* Sidebar für Werbung */
+            padding-left: 20px;
+            border-left: 1px solid #e0e0e0;
+            min-width: 250px;
         }
         .masthead {
-            /* Branding-Bereich */
             font-family: Arial, sans-serif;
-            border-bottom: 4px solid #cc0000; /* Rote Akzentlinie wie oft bei News-Marken */
+            border-bottom: 4px solid #cc0000;
             padding-bottom: 10px;
             margin-bottom: 20px;
+            width: 100%;
         }
         .masthead h1 {
-            /* Simulierter Markenname */
-            font-size: 2.2em;
-            color: #333;
+            font-size: 2.5em;
+            color: #cc0000;
             margin: 0;
             line-height: 1;
+            font-weight: 900;
         }
         .article-meta {
-            /* Datum und Ort im Header */
             font-family: Arial, sans-serif;
-            font-size: 0.85em;
+            font-size: 0.9em;
             color: #777;
+            margin-top: 5px;
         }
         h1 {
-            /* Hauptüberschrift, groß und auffällig */
             font-family: 'Georgia', serif;
             font-size: 2.5em;
-            color: #000;
-            margin-top: 0;
-            margin-bottom: 10px;
+            color: #222;
+            margin-top: 20px;
+            margin-bottom: 15px;
             line-height: 1.1;
         }
         .lead-paragraph {
-            /* Teaser/Zusammenfassung: Hervorgehoben und kursiv */
             font-family: Arial, sans-serif; 
             font-size: 1.3em;
             font-style: italic;
             font-weight: 500;
-            color: #333;
+            color: #444;
             margin-bottom: 30px;
-            padding-left: 15px;
-            line-height: 1.4;
+            padding: 15px 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
         }
         .dateline {
-            /* Ort und Datum des Berichts */
             font-weight: bold;
-            color: #555;
-            margin-bottom: 20px;
+            color: #666;
+            margin-bottom: 25px;
             font-size: 0.95em;
             display: block;
         }
         p {
-            /* Absatz-Formatierung */
-            margin-bottom: 1.2em;
-            text-align: justify; /* Blocksatz für formelles Aussehen */
+            margin-bottom: 1.5em;
+            text-align: justify;
             font-size: 1.1em;
         }
-        .image-placeholder {
-            /* Platzhalter für Bild (wichtig für News-Seiten) */
-            background-color: #eee;
-            color: #666;
+        .image-container {
+            width: 100%;
+            margin: 25px 0;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #e0e0e0;
+        }
+        .image-caption {
+            font-family: Arial, sans-serif;
+            font-size: 0.8em;
+            color: #999;
+            text-align: left;
+            margin-top: 5px;
+        }
+        .ad-unit {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
             text-align: center;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid #ccc;
             font-family: Arial, sans-serif;
             font-size: 0.9em;
+            color: #555;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .ad-unit strong {
+            color: #cc0000;
+            display: block;
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -94,31 +124,64 @@
     <div class="container">
         
         <div class="masthead">
-            <h1>NACHRICHTEN AKTUELL</h1>
-            <div class="article-meta">VERKEHR | 13. November 2025</div>
+            <h1>NEWS-FLASH</h1>
+            <div class="article-meta">VERKEHR • DEUTSCHE BAHN • 13. November 2025 • Lesezeit: 3 Minuten</div>
         </div>
-
-        <h1>GEHEIMNIS GELÜFTET: Darum war dieser ICE tagelang "perfekt pünktlich" – die Wahrheit ist peinlich für die Bahn</h1>
-
-        <p class="lead-paragraph">Ein Lokführer der Deutschen Bahn hat offenbar vergessen, nach der Zeitumstellung die Uhr in seinem Führerstand anzupassen. Sein Zug galt daraufhin mehrere Tage lang als „beispielhaft pünktlich“. Die Bahn reagiert mit Humor – und einer kleinen Lehre.</p>
         
+        <div class="article-content">
+            
+            <h1>GEHEIMNIS GELÜFTET: Darum war dieser ICE tagelang "perfekt pünktlich" – die Wahrheit ist peinlich für die Bahn</h1>
+
+            <p class="lead-paragraph">Ein Lokführer der Deutschen Bahn hat offenbar vergessen, nach der Zeitumstellung die Uhr in seinem Führerstand anzupassen. Sein Zug galt daraufhin mehrere Tage lang als „beispielhaft pünktlich“. Die Bahn reagiert mit Humor – und einer kleinen Lehre.</p>
+
+            <div class="image-container">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgbOgusrWhjA4fi6kF6P9DuceynssxsW2S1ZtdDsMznzbuYNMz2fQ5pSh3L5Gwj2gDWYxPy9L8sk0Hw6GtiMlW6-Qd4k48eBXG02nJIkszBKfLHUJ2TyY8C6VmYlmWdeZwg8v0Vc40yNf5qe7bOx6kFvVlPoEFoGN43OgagmJ0eaj5MCoSI7J6_VG6f6E/s1600-rw/ICE-Zeitumstellung.jpg" alt="ICE-Zugführer im Führerstand">
+                <div class="image-caption">Ein ICE der Deutschen Bahn. Hier wurde die Uhr im Cockpit übersehen. (Quelle: Deutsche Bahn)</div>
+            </div>
+
+            <p class="dateline">Berlin, 13. November 2025</p>
+
+            <p>Ein Versäumnis mit unerwartet positiven Folgen: Ein ICE-Zugführer der Deutschen Bahn hat nach der Zeitumstellung Ende Oktober offenbar vergessen, die Uhr in seinem Führerstand korrekt einzustellen – und fuhr dadurch mehrere Tage lang rund eine Stunde zu früh ab. Während der Fehler zunächst unbemerkt blieb, registrierten die internen Systeme eine außergewöhnliche Häufung pünktlicher Ankünfte auf der betreffenden Strecke.</p>
+
+            <p>Wie ein Sprecher der Deutschen Bahn bestätigte, handelte es sich um einen Zug im Fernverkehr zwischen Köln und Berlin, der vor allem in den frühen Morgenstunden verkehrt. „Der Kollege war mit einer Uhr unterwegs, die noch auf Sommerzeit stand“, sagte der Sprecher. „Da die Verbindung sonntagmorgens nur schwach ausgelastet ist, fiel die Abweichung zunächst nicht auf.“</p>
+            
+            <div class="ad-unit" style="margin: 30px 0;">
+                <p><strong>ANZEIGE</strong></p>
+                <p>Neue App: Nie wieder zu spät kommen! Die besten Wecker-Apps 2025 im Test.</p>
+                <a href="#">HIER KLICKEN FÜR MEHR PÜNKTLICHKEIT</a>
+            </div>
+
+            <p>Laut Bahnangaben kam der Zug in diesem Zeitraum an allen Haltestellen pünktlich oder sogar bis zu 40 Minuten vor Plan an. Erst nachdem ein Disponent den ungewöhnlichen Wert im internen Pünktlichkeitsbericht bemerkte, wurde der Fehler entdeckt.</p>
+
+            <p>Der Lokführer selbst reagierte gelassen auf den Vorfall. „Ich hab mich ehrlich gesagt gewundert, dass ich plötzlich immer rechtzeitig bin“, soll er laut Bahnkreisen gesagt haben. „Normalerweise ist das andersrum.“</p>
+
+            <p>Auswirkungen auf den Fahrplan habe der Irrtum nicht gehabt, betonte das Unternehmen. Der Zug sei zu einer Zeit unterwegs gewesen, zu der noch keine Anschlussverbindungen betroffen gewesen seien. Fahrgäste, die zufällig bereits am Bahnsteig waren, hätten den Zug laut Bahnangaben allerdings „überraschend früh“ gesehen.</p>
+
+            <p>Die Bahn will den Vorfall zum Anlass nehmen, die Abläufe rund um die halbjährliche Zeitumstellung zu überprüfen. „Unsere Fahrzeuge sind technisch komplex. In vielen Lokführerpulten werden Uhren noch manuell gestellt“, erklärte der Sprecher. Künftig solle stärker darauf geachtet werden, dass Systeme automatisch synchronisiert werden.</p>
+
+            <p>Gleichzeitig nahm das Unternehmen den Zwischenfall mit einem Augenzwinkern: „Wenn Pünktlichkeit manchmal nur eine Frage der richtigen Uhrzeit ist, sind wir offenbar auf dem richtigen Weg“, hieß es in einer Mitteilung.</p>
+
+        </div>
         
-
-        <p class="dateline">Berlin, 13. November 2025</p>
-
-        <p>Ein Versäumnis mit unerwartet positiven Folgen: Ein ICE-Zugführer der Deutschen Bahn hat nach der Zeitumstellung Ende Oktober offenbar vergessen, die Uhr in seinem Führerstand korrekt einzustellen – und fuhr dadurch mehrere Tage lang rund eine Stunde zu früh ab. Während der Fehler zunächst unbemerkt blieb, registrierten die internen Systeme eine außergewöhnliche Häufung pünktlicher Ankünfte auf der betreffenden Strecke.</p>
-
-        <p>Wie ein Sprecher der Deutschen Bahn bestätigte, handelte es sich um einen Zug im Fernverkehr zwischen Köln und Berlin, der vor allem in den frühen Morgenstunden verkehrt. „Der Kollege war mit einer Uhr unterwegs, die noch auf Sommerzeit stand“, sagte der Sprecher. „Da die Verbindung sonntagmorgens nur schwach ausgelastet ist, fiel die Abweichung zunächst nicht auf.“</p>
-
-        <p>Laut Bahnangaben kam der Zug in diesem Zeitraum an allen Haltestellen pünktlich oder sogar bis zu 40 Minuten vor Plan an. Erst nachdem ein Disponent den ungewöhnlichen Wert im internen Pünktlichkeitsbericht bemerkte, wurde der Fehler entdeckt.</p>
-
-        <p>Der Lokführer selbst reagierte gelassen auf den Vorfall. „Ich hab mich ehrlich gesagt gewundert, dass ich plötzlich immer rechtzeitig bin“, soll er laut Bahnkreisen gesagt haben. „Normalerweise ist das andersrum.“</p>
-
-        <p>Auswirkungen auf den Fahrplan habe der Irrtum nicht gehabt, betonte das Unternehmen. Der Zug sei zu einer Zeit unterwegs gewesen, zu der noch keine Anschlussverbindungen betroffen gewesen seien. Fahrgäste, die zufällig bereits am Bahnsteig waren, hätten den Zug laut Bahnangaben allerdings „überraschend früh“ gesehen.</p>
-
-        <p>Die Bahn will den Vorfall zum Anlass nehmen, die Abläufe rund um die halbjährliche Zeitumstellung zu überprüfen. „Unsere Fahrzeuge sind technisch komplex. In vielen Lokführerpulten werden Uhren noch manuell gestellt“, erklärte der Sprecher. Künftig solle stärker darauf geachtet werden, dass Systeme automatisch synchronisiert werden.</p>
-
-        <p>Gleichzeitig nahm das Unternehmen den Zwischenfall mit einem Augenzwinkern: „Wenn Pünktlichkeit manchmal nur eine Frage der richtigen Uhrzeit ist, sind wir offenbar auf dem richtigen Weg“, hieß es in einer Mitteilung.</p>
+        <div class="sidebar">
+            <div class="ad-unit">
+                <p><strong>TOP-WERBUNG</strong></p>
+                <p>Reiseangebote sichern: Buchen Sie jetzt Ihren nächsten pünktlichen Urlaub – 10% Rabatt mit Code: ZUGZEIT</p>
+                <a href="#">JETZT ENTDECKEN</a>
+            </div>
+            
+            <div class="ad-unit">
+                <p><strong>LESEN SIE AUCH:</strong></p>
+                <p>Die peinlichsten Fehler der Deutschen Bahn – eine Chronik des Scheiterns?</p>
+                <a href="#">ZUM ARTIKEL</a>
+            </div>
+            
+            <div class="ad-unit">
+                <p><strong>ZEITUMSTELLUNG VERPASST?</strong></p>
+                <p>Holen Sie sich jetzt eine Smartwatch mit automatischer Sommer-/Winterzeit-Synchronisation!</p>
+                <a href="#">ALLE MODELLE ANSEHEN</a>
+            </div>
+        </div>
 
     </div>
 
