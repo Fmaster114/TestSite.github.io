@@ -6,60 +6,121 @@
     <title>Uhr nicht umgestellt: ICE-Zugführer fährt zu früh</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            /* Hintergrundfarbe und traditionelle Schrift für Text */
+            font-family: 'Times New Roman', Times, serif; 
             line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            color: #1a1a1a;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
         }
-        h1 {
-            color: #333;
-            font-size: 1.8em;
-            margin-bottom: 0.5em;
+        .container {
+            /* Zentraler Inhaltsbereich, wie bei einer News-Seite */
+            max-width: 850px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 40px 50px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Leichter Schatten */
         }
-        h2 {
-            font-size: 1.2em;
-            color: #555;
-            font-weight: normal;
-            margin-top: 0;
+        .masthead {
+            /* Branding-Bereich */
+            font-family: Arial, sans-serif;
+            border-bottom: 4px solid #cc0000; /* Rote Akzentlinie wie oft bei News-Marken */
+            padding-bottom: 10px;
             margin-bottom: 20px;
         }
-        .dateline {
-            font-style: italic;
-            color: #777;
-            margin-bottom: 15px;
+        .masthead h1 {
+            /* Simulierter Markenname */
+            font-size: 2.2em;
+            color: #333;
+            margin: 0;
+            line-height: 1;
         }
-        hr {
-            border: 0;
-            height: 1px;
-            background: #ccc;
+        .article-meta {
+            /* Datum und Ort im Header */
+            font-family: Arial, sans-serif;
+            font-size: 0.85em;
+            color: #777;
+        }
+        h1 {
+            /* Hauptüberschrift, groß und auffällig */
+            font-family: 'Georgia', serif;
+            font-size: 2.5em;
+            color: #000;
+            margin-top: 0;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+        .lead-paragraph {
+            /* Teaser/Zusammenfassung: Hervorgehoben und kursiv */
+            font-family: Arial, sans-serif; 
+            font-size: 1.3em;
+            font-style: italic;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 30px;
+            padding-left: 15px;
+            line-height: 1.4;
+        }
+        .dateline {
+            /* Ort und Datum des Berichts */
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            display: block;
+        }
+        p {
+            /* Absatz-Formatierung */
+            margin-bottom: 1.2em;
+            text-align: justify; /* Blocksatz für formelles Aussehen */
+            font-size: 1.1em;
+        }
+        .image-placeholder {
+            /* Platzhalter für Bild (wichtig für News-Seiten) */
+            background-color: #eee;
+            color: #666;
+            text-align: center;
+            padding: 20px;
             margin: 20px 0;
+            border: 1px solid #ccc;
+            font-family: Arial, sans-serif;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
 
-    <h1>Uhr nicht umgestellt – ICE-Zugführer fährt versehentlich zu früh und erreicht ungewöhnliche Pünktlichkeit</h1>
+    <div class="container">
+        
+        <div class="masthead">
+            <h1>NACHRICHTEN AKTUELL</h1>
+            <div class="article-meta">VERKEHR | 13. November 2025</div>
+        </div>
 
-    <h2>Ein Lokführer der Deutschen Bahn hat offenbar vergessen, nach der Zeitumstellung die Uhr in seinem Führerstand anzupassen. Sein Zug galt daraufhin mehrere Tage lang als „beispielhaft pünktlich“. Die Bahn reagiert mit Humor – und einer kleinen Lehre.</h2>
+        <h1>Uhr nicht umgestellt – ICE-Zugführer fährt versehentlich zu früh und erreicht ungewöhnliche Pünktlichkeit</h1>
 
-    <hr>
+        <p class="lead-paragraph">Ein Lokführer der Deutschen Bahn hat offenbar vergessen, nach der Zeitumstellung die Uhr in seinem Führerstand anzupassen. Sein Zug galt daraufhin mehrere Tage lang als „beispielhaft pünktlich“. Die Bahn reagiert mit Humor – und einer kleinen Lehre.</p>
+        
+        
 
-    <p class="dateline">Berlin, 13. November 2025</p>
+        <p class="dateline">Berlin, 13. November 2025</p>
 
-    <p>Ein Versäumnis mit unerwartet positiven Folgen: Ein ICE-Zugführer der Deutschen Bahn hat nach der Zeitumstellung Ende Oktober offenbar vergessen, die Uhr in seinem Führerstand korrekt einzustellen – und fuhr dadurch mehrere Tage lang rund eine Stunde zu früh ab. Während der Fehler zunächst unbemerkt blieb, registrierten die internen Systeme eine außergewöhnliche Häufung pünktlicher Ankünfte auf der betreffenden Strecke.</p>
+        <p>Ein Versäumnis mit unerwartet positiven Folgen: Ein ICE-Zugführer der Deutschen Bahn hat nach der Zeitumstellung Ende Oktober offenbar vergessen, die Uhr in seinem Führerstand korrekt einzustellen – und fuhr dadurch mehrere Tage lang rund eine Stunde zu früh ab. Während der Fehler zunächst unbemerkt blieb, registrierten die internen Systeme eine außergewöhnliche Häufung pünktlicher Ankünfte auf der betreffenden Strecke.</p>
 
-    <p>Wie ein Sprecher der Deutschen Bahn bestätigte, handelte es sich um einen Zug im Fernverkehr zwischen Köln und Berlin, der vor allem in den frühen Morgenstunden verkehrt. „Der Kollege war mit einer Uhr unterwegs, die noch auf Sommerzeit stand“, sagte der Sprecher. „Da die Verbindung sonntagmorgens nur schwach ausgelastet ist, fiel die Abweichung zunächst nicht auf.“</p>
+        <p>Wie ein Sprecher der Deutschen Bahn bestätigte, handelte es sich um einen Zug im Fernverkehr zwischen Köln und Berlin, der vor allem in den frühen Morgenstunden verkehrt. „Der Kollege war mit einer Uhr unterwegs, die noch auf Sommerzeit stand“, sagte der Sprecher. „Da die Verbindung sonntagmorgens nur schwach ausgelastet ist, fiel die Abweichung zunächst nicht auf.“</p>
 
-    <p>Laut Bahnangaben kam der Zug in diesem Zeitraum an allen Haltestellen pünktlich oder sogar bis zu 40 Minuten vor Plan an. Erst nachdem ein Disponent den ungewöhnlichen Wert im internen Pünktlichkeitsbericht bemerkte, wurde der Fehler entdeckt.</p>
+        <p>Laut Bahnangaben kam der Zug in diesem Zeitraum an allen Haltestellen pünktlich oder sogar bis zu 40 Minuten vor Plan an. Erst nachdem ein Disponent den ungewöhnlichen Wert im internen Pünktlichkeitsbericht bemerkte, wurde der Fehler entdeckt.</p>
 
-    <p>Der Lokführer selbst reagierte gelassen auf den Vorfall. „Ich hab mich ehrlich gesagt gewundert, dass ich plötzlich immer rechtzeitig bin“, soll er laut Bahnkreisen gesagt haben. „Normalerweise ist das andersrum.“</p>
+        <p>Der Lokführer selbst reagierte gelassen auf den Vorfall. „Ich hab mich ehrlich gesagt gewundert, dass ich plötzlich immer rechtzeitig bin“, soll er laut Bahnkreisen gesagt haben. „Normalerweise ist das andersrum.“</p>
 
-    <p>Auswirkungen auf den Fahrplan habe der Irrtum nicht gehabt, betonte das Unternehmen. Der Zug sei zu einer Zeit unterwegs gewesen, zu der noch keine Anschlussverbindungen betroffen gewesen seien. Fahrgäste, die zufällig bereits am Bahnsteig waren, hätten den Zug laut Bahnangaben allerdings „überraschend früh“ gesehen.</p>
+        <p>Auswirkungen auf den Fahrplan habe der Irrtum nicht gehabt, betonte das Unternehmen. Der Zug sei zu einer Zeit unterwegs gewesen, zu der noch keine Anschlussverbindungen betroffen gewesen seien. Fahrgäste, die zufällig bereits am Bahnsteig waren, hätten den Zug laut Bahnangaben allerdings „überraschend früh“ gesehen.</p>
 
-    <p>Die Bahn will den Vorfall zum Anlass nehmen, die Abläufe rund um die halbjährliche Zeitumstellung zu überprüfen. „Unsere Fahrzeuge sind technisch komplex. In vielen Lokführerpulten werden Uhren noch manuell gestellt“, erklärte der Sprecher. Künftig solle stärker darauf geachtet werden, dass Systeme automatisch synchronisiert werden.</p>
+        <p>Die Bahn will den Vorfall zum Anlass nehmen, die Abläufe rund um die halbjährliche Zeitumstellung zu überprüfen. „Unsere Fahrzeuge sind technisch komplex. In vielen Lokführerpulten werden Uhren noch manuell gestellt“, erklärte der Sprecher. Künftig solle stärker darauf geachtet werden, dass Systeme automatisch synchronisiert werden.</p>
 
-    <p>Gleichzeitig nahm das Unternehmen den Zwischenfall mit einem Augenzwinkern: „Wenn Pünktlichkeit manchmal nur eine Frage der richtigen Uhrzeit ist, sind wir offenbar auf dem richtigen Weg“, hieß es in einer Mitteilung.</p>
+        <p>Gleichzeitig nahm das Unternehmen den Zwischenfall mit einem Augenzwinkern: „Wenn Pünktlichkeit manchmal nur eine Frage der richtigen Uhrzeit ist, sind wir offenbar auf dem richtigen Weg“, hieß es in einer Mitteilung.</p>
+
+    </div>
 
 </body>
 </html>
